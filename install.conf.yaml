@@ -5,8 +5,9 @@
 - clean: ['~']
 
 - link:
-    ~/.dotfiles: ''
+#   ~/.dotfiles: ''
     ~/.xinitrc: xinitrc
+    ~/.zshrc: zshrc
     ~/.vim: vim
     ~/.vimrc: vimrc
 
