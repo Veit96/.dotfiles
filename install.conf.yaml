@@ -8,9 +8,11 @@
 #   ~/.dotfiles: ''
     ~/.xinitrc: xinitrc
     ~/.zshrc: zshrc
-    ~/.vim: vim
+    ~/.vim: vim/
     ~/.vimrc: vimrc
     ~/.Xresources: Xresources
+    ~/.config/ranger: ranger
+    ~/.i3: i3
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
