@@ -33,6 +33,9 @@ Plugin 'html5.vim'
 " 
 Plugin 'artur-shaik/vim-javacomplete2'
 
+"colorful vim color scheme
+Plugin 'zeis/vim-kolor'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
