@@ -15,6 +15,7 @@
     ~/.Xresources: Xresources
     ~/.config/ranger: ranger
     ~/.i3: i3
+    ~/.conkyrc: conkyrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
