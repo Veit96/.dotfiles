@@ -1,6 +1,8 @@
 - defaults:
     link:
+      create: true
       relink: true
+      force: true
 
 - clean: ['~']
 
@@ -8,7 +10,7 @@
 #   ~/.dotfiles: ''
     ~/.xinitrc: xinitrc
     ~/.zshrc: zshrc
-    ~/.vim: vim/
+    ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.Xresources: Xresources
     ~/.config/ranger: ranger
