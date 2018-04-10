@@ -17,5 +17,5 @@
     ~/.i3: i3
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [xrdb -load ~/.Xresources &]
+  - [git submodule update --remote dotbot, Installing submodules]
+  - [xrdb -load ~/.Xresources &, Sourcing Xresources]
