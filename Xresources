@@ -45,15 +45,26 @@ Xft.hitstyle: hintslight
 ! u r x v t
 
 URxvt*geometry:         112x22
-URxvt*font:            xft:SourceCodePro:size=10
+URxvt*font:            xft:SourceCodePro:size=15
 URxvt*urlLauncher:         /usr/bin/qutebrowser
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
 URxvt*scrollBar:        false
 URxvt*scrollBar_right:        true
 URxvt*scrollColor:        #000000
-URxvt*perl-ext-common: default,matcher,tabbed
+URxvt*perl-ext-common: default,matcher,fullscreen,resize-font
 URxvt*url-launcer: /usr/bin/qutebrowser
 URxvt*matcher.button: 1
 URxvt*colorUL: #4682B4
+URxvt.keysym.F11: perl:fullscreen:switch
 URxvt*depth: 32
 URxvt*background: rgb:000/000/020
 URxvt*letterSpace: -2
