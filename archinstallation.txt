@@ -70,7 +70,7 @@ gpasswd -a user_name wheel
 
 pacman -S acpid dbus avahi cups cronie
 
-pacman -S vundle zsh git ranger dmenu urxvt feh conky nitrogen
+pacman -S vundle zsh git ranger dmenu rxvt-unicode feh conky nitrogen
 
 
 
