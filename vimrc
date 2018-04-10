@@ -177,6 +177,7 @@ endif " has("autocmd")
 "hi clear SpellBad
 "hi SpellBad cterm=underline
 
+
 let g:kolor_italic=1                    " Enable italic. Default: 1
 let g:kolor_bold=1                      " Enable bold. Default: 1
 let g:kolor_underlined=0                " Enable underline. Default: 0
