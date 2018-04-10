@@ -117,7 +117,7 @@ URxvt.url-select.launcher: /usr/bin/qutebrowser
 URxvt.url-select.underline: true
 
 URxvt.transparent:   true
-URxvt.shading:       20
+URxvt.shading:       25
 
 !------------------------------------------------------------------------------
 ! Xcursor

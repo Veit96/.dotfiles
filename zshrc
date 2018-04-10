@@ -17,10 +17,6 @@ bindkey -v
 # xrandr alias
 alias multi='xrandr --output eDP1 --auto --output VGA1 --auto --right-of eDP1'
 alias terra='xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1 && feh --randomize --bg-fill $HOME/media/pictures/wallpapers/wallpapers_current'
-alias belinea='xrandr --output eDP1 --auto --output HDMI1 --mode 1280x1024 --left-of eDP1'
-alias terrinea='xrandr --output eDP1 --auto --output HDMI1 --mode 1280x1024 --left-of eDP1 --output VGA1 --mode 1680x1050 --right-of eDP1'
-
-alias susp='sudo systemctl suspend'
 
 # keyboard K780 use regular F1..12 instead of media keys
 alias chk='solaar config k780 fn-swap false'
@@ -29,6 +25,7 @@ alias chk='solaar config k780 fn-swap false'
 alias goal='feh --bg-fill /home/veit/media/pictures/wallpapers/wallpapers_current/triumph-street-triple-r_2333.jpg'
 alias bmwgs='feh --bg-fill /home/veit/media/pictures/wallpapers/wallpapers_current/bmwr1200gs.jpg'
 alias cwp='feh --randomize --bg-fill /home/veit/media/pictures/wallpapers/wallpapers_old/*'
+alias cwpn='feh --randomize --bg-fill /home/veit/share/media/wallpapers/'
 
 # Pacman alias examples
 alias pacupg='sudo pacman -Syu'		# Synchronize with repositories and then upgrade packages that are out of date on the local system.
