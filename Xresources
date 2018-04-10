@@ -45,7 +45,7 @@ Xft.hitstyle: hintslight
 ! u r x v t
 
 URxvt*geometry:         112x22
-URxvt*font:            xft:SourceCodePro:size=15
+URxvt*font:            xft:SourceCodePro:size=12
 URxvt*urlLauncher:         /usr/bin/qutebrowser
 
 ! do not scroll with output
