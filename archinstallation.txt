@@ -1,0 +1,76 @@
+loadkeys de_CH-latin1
+
+gdisk /dev/sdx
+
+(mkfs.fat -F 32 -n EFIBOOT /dev/sdx#)
+mkfs.ext4 -L arch /dev/sdx#
+mkswap -L swap /dev/sdx#
+
+mount -L arch /mnt
+mkdir & mount
+swapon -L swap
+
+setup network connection (wifi-menu)
+
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+vim /etc/pacman.d/mirrorlist
+
+timedatectl status
+timedatectl set-ntp true
+
+pacstrap /mnt base base-devel intel-ucode networkmanager vim
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt
+
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+
+echo myhost > /etc/hostname
+
+vim /etc/locale.gen
+locale-gen
+
+echo LANG=de_CH.UTF-8 > /etc/locale.conf (en_US.UTF-8)
+
+vim /etc/vconsole.conf
+->KEYMAP=sg-latin1
+->FONT=Lat2-Terminus16
+->Lang=de_CH
+
+vim /etc/hosts
+#
+# /etc/hosts: static lookup table for host names
+#
+#<ip-address>	<hostname.domain.org>	<hostname>
+127.0.0.1	localhost.localdomain	localhost arch
+::1		localhost.localdomain	localhost arch
+
+mkinitcpio -p linux
+passwd
+
+pacman -S grub efibootmgr dosfstools gptfdisk
+
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --recheck --debug
+grub-mkconfig -o /boot/grub/grub.cfg
+
+
+exit
+umount -R /mnt
+reboot
+
+
+useradd -m -g users -s /bin/bash user_name
+passwd user_name
+
+vim /etc/sudoers
+%wheel ALL=(ALL) ALL
+
+gpasswd -a user_name wheel
+
+pacman -S acpid dbus avahi cups cronie
+
+pacman -S vundle zsh git ranger dmenu urxvt feh conky nitrogen
+
+
+
