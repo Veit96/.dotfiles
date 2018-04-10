@@ -70,7 +70,7 @@ gpasswd -a user_name wheel
 
 pacman -S acpid dbus avahi cups cronie
 
-pacman -S vundle zsh git ranger dmenu rxvt-unicode feh conky nitrogen urxvt-perls adobe-source-code-pro-fonts ntfs-3g asla-utils
+pacman -S vundle zsh git ranger dmenu rxvt-unicode feh conky nitrogen urxvt-perls adobe-source-code-pro-fonts ntfs-3g asla-utils xorg-xbacklight
 pacaur -S urxvt-resize-font-git polybar
 
 
