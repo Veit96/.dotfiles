@@ -136,7 +136,7 @@ if has("autocmd")
   augroup mysettings
     au FileType xslt,xml,css,html,xhtml,javascript,sh,config,c,cpp,docbook set smartindent shiftwidth=2 softtabstop=2 expandtab
     au FileType tex set wrap shiftwidth=2 softtabstop=2 expandtab
-	au FileType tex setlocal spell spelllang=de_ch,en_us,en_gb
+	au FileType tex setlocal spell spelllang=en_us,en_gb,de_ch
 
     " Confirm to PEP8
     au FileType python set tabstop=4 softtabstop=4 expandtab shiftwidth=4 cinwords=if,elif,else,for,while,try,except,finally,def,class

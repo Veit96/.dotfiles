@@ -63,5 +63,6 @@ alias cp='cp --reflink=auto'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
 export PATH=$PATH:~/bin:~/.local/bin:~/.gem/ruby/2.2.0/bin:
 
