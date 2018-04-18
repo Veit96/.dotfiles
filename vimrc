@@ -7,6 +7,9 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+
+"Plugin ‘GITHUB_REPO_USER/GITHUB_REPO_PROJECT_NAME’
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -35,6 +38,9 @@ Plugin 'artur-shaik/vim-javacomplete2'
 
 "colorful vim color scheme
 Plugin 'zeis/vim-kolor'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'The-NERD-Commenter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
