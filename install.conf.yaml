@@ -14,6 +14,7 @@
     ~/.Xresources: Xresources
     ~/.config/ranger: ranger
     ~/.i3: i3
+    ~/.config/polybar: polybar
 
 - shell:
   - [git submodule update --remote dotbot, Installing submodules]

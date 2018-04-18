@@ -203,7 +203,7 @@ gaps outer 8
 
 #exec --no-startup-id compton -CGb
 
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 set $Locker i3lock -c 26dfec -f && sleep 1
 #
