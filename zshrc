@@ -65,4 +65,3 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 
 export PATH=$PATH:~/bin:~/.local/bin:~/.gem/ruby/2.2.0/bin:
-
