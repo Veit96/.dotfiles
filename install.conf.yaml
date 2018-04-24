@@ -1,20 +1,27 @@
 - defaults:
     link:
-      create: true
-      relink: true
-#      force: true
+      create: true # create parent dir to the link as needed (default:false)
+      relink: true # removes the old target if it's a symlink (default:false)
+#      force: true # removes the old target, file or folder, and forces a new link (default:false)
+#      glob: treat a * character as a wildcard, and perform link operations on all of those matches (default:false)  
 
 - clean: ['~']
 
 - link:
 #   ~/.dotfiles: ''
     ~/.xinitrc: xinitrc
-    ~/.zshrc: zshrc
+    ~/.zshrc: 
+        force: true
+        path: zshrc
     ~/.vimrc: vimrc
-    ~/.Xresources: Xresources
-    ~/.config/ranger: ranger
     ~/.i3: i3
-    ~/.config/polybar: polybar
+    ~/.Xresources: Xresources
+
+    ~/.config/:
+        glob: true
+        path: config/*
+#    ~/.config/ranger: ranger
+#    ~/.config/polybar: polybar
 
 - shell:
   - [git submodule update --remote dotbot, Installing submodules]
