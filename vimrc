@@ -1,4 +1,6 @@
 set nocompatible              " be iMproved, required
+set encoding=utf8
+
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -30,17 +32,24 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
+" ----------- PLUGINS ----------------
 " for html5 support
 Plugin 'html5.vim'
 
 " 
 Plugin 'artur-shaik/vim-javacomplete2'
 
-"colorful vim color scheme
-Plugin 'zeis/vim-kolor'
-
 Plugin 'scrooloose/nerdtree'
 Plugin 'The-NERD-Commenter'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'lifepillar/vim-solarized8'
+
+" A Vim Plugin for Lively Previewing LaTeX PDF Output
+Plugin 'xuhdev/vim-latex-live-preview'
+" ----------- END PLUGINS ------------
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,15 +72,12 @@ if &compatible          " only if not set before:
   set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
 endif
 
-" display settings
-set background=dark     " enable for dark terminals
+" ------------------ DISPLAY SETTINGS -----------------------
 set nowrap              " dont wrap lines
 set scrolloff=2         " 2 lines above/below cursor when scrolling
-set number              " show line numbers
 set showmatch           " show matching bracket (briefly jump)
 set showmode            " show mode in status bar (insert/replace/...)
 set showcmd             " show typed command in status bar
-set ruler               " show cursor position in status bar
 set title               " show file in titlebar
 set wildmenu            " completion with menu
 set wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
@@ -79,18 +85,57 @@ set laststatus=2        " use 2 lines for the status bar
 set matchtime=2         " show matching bracket for 0.2 seconds
 set matchpairs+=<:>     " specially for html
 
-" editor settings
+" show linenumbers
+set number              " show line numbers
+set ruler               " show cursor position in status bar
+
+" Enable highlighting of the current line
+set cursorline
+
+" Theme and Styling 
+set t_Co=256
+set background=dark     " enable for dark terminals
+let base16colorspace=256  " Access colors present in 256 colorspace
+"let g:solarized_use16 = 0
+colorscheme solarized8_high
+
+" color settings (if terminal/gui supports it)
+if &t_Co > 2 || has("gui_running")
+  syntax on          " enable colors
+  set hlsearch       " highlight search (very useful!)
+  set incsearch      " search incremently (search while typing)
+endif
+
+" Vim-Airline Configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='hybrid'
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+
+" ----------------- END DISPLAY SETTINGS ---------------------
+
+
+" ------------------- EDITOR SETTINGS ----------------------
+" Markdown Syntax Support
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
+
 set esckeys             " map missed escape sequences (enables keypad keys)
 set ignorecase          " case insensitive searching
 set smartcase           " but become case sensitive if you type uppercase characters
 set smartindent         " smart auto indenting
-set smarttab            " smart tab handling for indenting
 set magic               " change the way backslashes are used in search patterns
 set bs=indent,eol,start " Allow backspacing over everything in insert mode
 
+" set proper tabs
 set tabstop=4           " number of spaces a tab counts for
 set shiftwidth=4        " spaces for autoindents
-"set expandtab           " turn a tabs into spaces
+set smarttab            " smart tab handling for indenting
+set expandtab           " turn a tabs into spaces
 
 set fileformat=unix     " file mode is unix
 "set fileformats=unix,dos    " only detect unix file format, displays that ^M with dos files
@@ -104,13 +149,6 @@ set hidden              " remember undo after quitting
 set history=50          " keep 50 lines of command history
 set mouse=v             " use mouse in visual mode (not normal,insert,command,help mode
 
-
-" color settings (if terminal/gui supports it)
-if &t_Co > 2 || has("gui_running")
-  syntax on          " enable colors
-  set hlsearch       " highlight search (very useful!)
-  set incsearch      " search incremently (search while typing)
-endif
 
 " paste mode toggle (needed when using autoindent/smartindent)
 map <F10> :set paste<CR>
@@ -183,9 +221,5 @@ endif " has("autocmd")
 "hi clear SpellBad
 "hi SpellBad cterm=underline
 
-
-let g:kolor_italic=1                    " Enable italic. Default: 1
-let g:kolor_bold=1                      " Enable bold. Default: 1
-let g:kolor_underlined=0                " Enable underline. Default: 0
-let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
-colorscheme kolor
+autocmd FileType tex setl updatetime=1
+let g:livepreview_preview = 'zathura'

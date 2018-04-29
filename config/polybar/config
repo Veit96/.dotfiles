@@ -60,9 +60,9 @@ font-0 = fixed:pixelsize=12;1
 font-1 = unifont:fontformat=truetype:size=12:antialias=false;1
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3
+modules-left = i3 xkeyboard
 modules-center = 
-modules-right = root home share xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = root home share xbacklight volume wlan eth cpu memory temperature battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -142,7 +142,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 ;blacklist-0 = num lock
 
-format-prefix = " "
+;format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
@@ -153,6 +153,8 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
+
+format = <label-indicator>
 
 [module/root]
 type = internal/fs
