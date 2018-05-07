@@ -14,6 +14,9 @@ SAVEHIST=5000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+# ranger alias
+alias r='ranger'
+
 # xrandr alias
 alias multi='xrandr --output eDP1 --auto --output VGA1 --auto --right-of eDP1'
 alias terra='xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1 && feh --randomize --bg-fill $HOME/media/pictures/wallpapers/wallpapers_current'
@@ -62,6 +65,8 @@ export EDITOR=vim
 alias cp='cp --reflink=auto'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
 
 
 export PATH=$PATH:~/bin:~/.local/bin:~/.gem/ruby/2.2.0/bin:

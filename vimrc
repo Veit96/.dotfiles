@@ -66,11 +66,11 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
 " reset to vim-defaults
-if &compatible          " only if not set before:
-  set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
-endif
+"if &compatible          " only if not set before:
+"  set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
+"endif
+
 
 " ------------------ DISPLAY SETTINGS -----------------------
 set nowrap              " dont wrap lines
@@ -101,27 +101,21 @@ colorscheme solarized8_high
 
 " color settings (if terminal/gui supports it)
 if &t_Co > 2 || has("gui_running")
-  syntax on          " enable colors
-  set hlsearch       " highlight search (very useful!)
-  set incsearch      " search incremently (search while typing)
+    syntax on          " enable colors
+    set hlsearch       " highlight search (very useful!)
+    set incsearch      " search incremently (search while typing)
 endif
 
-" Vim-Airline Configuration
+" Vim-airline configuration
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='hybrid'
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 
-" ----------------- END DISPLAY SETTINGS ---------------------
-
 
 " ------------------- EDITOR SETTINGS ----------------------
-" Markdown Syntax Support
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
+
 
 
 set esckeys             " map missed escape sequences (enables keypad keys)
@@ -159,40 +153,100 @@ set pastetoggle=<F11>
 
 set clipboard=unnamedplus 
 
+
+" ----------------------- MAPPINGS ----------------------------
+let mapleader = "<"
+let maplocalleader = ","
+" source .vimrc config file
+nnoremap <leader>sv :source $MYVIMRC<cr>
+" open .vimrc in vertical split window
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" make upper case in insert/normal "mode"
+inoremap <leader>u <esc>bveUea
+nnoremap <leader>u bveUel
+
+" surround word in double quotes
+nnoremap <leader>" ea"<esc>bi"<esc>lel
+" surround visual selection in double quotes
+vnoremap <leader>" <esc>'<i"<esc>'>A"<esc>
+
+
+" ---------------------- ABBREVATIONS ----------------------------
+iabbrev @@    veit.karpf@gmail.com
+iabbrev ccopy Copyright 2018 Veit Karpf, all rights reserved.
+iabbrev ssig -- <cr>Veit Karpf<cr>veit.karpf@gmail.com
+
+
+" ---------------------- AUTOCOMMANDS ----------------------------
+" example events: BufNewFile, BufWritePre, BufRead, FileType
+" template:
+"       augroup nameofthisgroup
+"           au! // reset autocommands, to not load them over and over
+"           au  // autocmd in short
+"       augroub END
+"
+"
 " Use of the filetype plugins, auto completion and indentation support
-filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+"set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+"hi clear SpellBad
+"hi SpellBad cterm=underline
 
-" file type specific settings
-if has("autocmd")
-  " For debugging
-  "set verbose=9
 
-  " if bash is sh.
-"  let bash_is_sh=1
-
-  " change to directory of current file automatically
-  autocmd BufEnter * lcd %:p:h
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup mysettings
+augroup mysettings
+    au!
     au FileType xslt,xml,css,html,xhtml,javascript,sh,config,c,cpp,docbook set smartindent shiftwidth=2 softtabstop=2 expandtab
-    au FileType tex set wrap shiftwidth=2 softtabstop=2 expandtab
-	au FileType tex setlocal spell spelllang=en_us,en_gb,de_ch
+    " add comments quickly
+    au FileType javascript,java,c,cpp nnoremap <buffer> <localleader>c I//<esc>
+    " Always jump to the last known cursor position. 
+    " Don't do it when the position is invalid or when inside
+    " an event handler (happens when dropping a file on gvim). 
+    au BufReadPost * 
+                \ if line("'\"") > 0 && line("'\"") <= line("$") | 
+                \   exe "normal g`\"" | 
+                \ endif 
+    " change to directory of current file automatically
+    au BufEnter * lcd %:p:h
+augroup END
 
+
+" Markdown Syntax Support
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
+
+augroup latex
+    au!
+    au FileType tex set wrap shiftwidth=2 softtabstop=2 expandtab
+    au FileType tex setlocal spell spelllang=en_us,en_gb,de_ch
+    au FileType tex setl updatetime=1
+    let g:livepreview_preview = 'zathura'
+augroup END
+
+
+augroup java
+    au!
+    au FileType java iabbrev ff public static void main () {<cr><cr>}
+augroup END
+
+
+augroup python
+    au!
     " Confirm to PEP8
     au FileType python set tabstop=4 softtabstop=4 expandtab shiftwidth=4 cinwords=if,elif,else,for,while,try,except,finally,def,class
-  augroup END
+    au FileType python nnoremap <buffer> <localleader>c I#<esc>
+augroup END
 
-  augroup perl
-    " reset (disable previous 'augroup perl' settings)
+
+augroup perl
     au!  
-
     au BufReadPre,BufNewFile
-    \ *.pl,*.pm
-    \ set formatoptions=croq smartindent shiftwidth=2 softtabstop=2 cindent cinkeys='0{,0},!^F,o,O,e' " tags=./tags,tags,~/devel/tags,~/devel/C
+                \ *.pl,*.pm
+                \ set formatoptions=croq smartindent shiftwidth=2 softtabstop=2 cindent cinkeys='0{,0},!^F,o,O,e' " tags=./tags,tags,~/devel/tags,~/devel/C
     " formatoption:
     "   t - wrap text using textwidth
     "   c - wrap comments using textwidth (and auto insert comment leader)
@@ -201,25 +255,6 @@ if has("autocmd")
     "   q - allow formatting of comments with "gq"
     "   a - auto formatting for paragraphs
     "   n - auto wrap numbered lists
-    "   
-  augroup END
+augroup END
 
 
-  " Always jump to the last known cursor position. 
-  " Don't do it when the position is invalid or when inside
-  " an event handler (happens when dropping a file on gvim). 
-  autocmd BufReadPost * 
-    \ if line("'\"") > 0 && line("'\"") <= line("$") | 
-    \   exe "normal g`\"" | 
-    \ endif 
-
-endif " has("autocmd")
-
-"---------------------------------------------------------------
-" settings added by Veit
-
-"hi clear SpellBad
-"hi SpellBad cterm=underline
-
-autocmd FileType tex setl updatetime=1
-let g:livepreview_preview = 'zathura'
