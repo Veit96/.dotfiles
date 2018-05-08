@@ -107,13 +107,12 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " Vim-airline configuration
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1 " list of buffers on top
 let g:airline_powerline_fonts = 1
-let g:airline_theme='hybrid'
+let g:airline_theme='simple'
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 let g:airline_powerline_fonts = 1
-
 
 " ------------------- EDITOR SETTINGS ----------------------
 
@@ -171,6 +170,13 @@ nnoremap <leader>u bveUel
 nnoremap <leader>" ea"<esc>bi"<esc>lel
 " surround visual selection in double quotes
 vnoremap <leader>" <esc>'<i"<esc>'>A"<esc>
+
+" buffer mappings
+nnoremap <leader>n :enew<cr>
+nnoremap <leader>l :bnext<cr>
+nnoremap <leader>h :bprevious<cr>
+nnoremap <leader>k :bd <BAR> bd #<CR>
+nnoremap <leader>l :ls<CR>
 
 
 " ---------------------- ABBREVATIONS ----------------------------
