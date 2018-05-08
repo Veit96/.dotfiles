@@ -112,6 +112,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='hybrid'
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
+let g:airline_powerline_fonts = 1
 
 
 " ------------------- EDITOR SETTINGS ----------------------
@@ -196,55 +197,57 @@ let g:tex_flavor = "latex"
 
 
 augroup mysettings
-    au!
-    au FileType xslt,xml,css,html,xhtml,javascript,sh,config,c,cpp,docbook set smartindent shiftwidth=2 softtabstop=2 expandtab
+    autocmd!
+    autocmd FileType xslt,xml,css,html,xhtml,javascript,sh,config,c,cpp,docbook set smartindent shiftwidth=2 softtabstop=2 expandtab
     " add comments quickly
-    au FileType javascript,java,c,cpp nnoremap <buffer> <localleader>c I//<esc>
+    autocmd FileType javascript,java,c,cpp nnoremap <buffer> <localleader>c I//<esc>
     " Always jump to the last known cursor position. 
     " Don't do it when the position is invalid or when inside
     " an event handler (happens when dropping a file on gvim). 
-    au BufReadPost * 
+    autocmd BufReadPost * 
                 \ if line("'\"") > 0 && line("'\"") <= line("$") | 
                 \   exe "normal g`\"" | 
                 \ endif 
     " change to directory of current file automatically
-    au BufEnter * lcd %:p:h
+    autocmd BufEnter * lcd %:p:h
 augroup END
 
 
 " Markdown Syntax Support
 augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+    autocmd!
+    autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
-
+" word ompletion: <c-n>, <c-p>
+" add word to dict: zg
 augroup latex
-    au!
-    au FileType tex set wrap shiftwidth=2 softtabstop=2 expandtab
-    au FileType tex setlocal spell spelllang=en_us,en_gb,de_ch
-    au FileType tex setl updatetime=1
-    let g:livepreview_preview = 'zathura'
+    autocmd!
+    autocmd FileType tex setlocal wrap shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType tex setlocal spell spelllang=en_us,en_gb,de_ch
+    autocmd FileType tes setlocal complete+=kspell
+    autocmd FileType tex setlocal updatetime=1
+    let g:livepreview_preview = 'okular'
 augroup END
 
 
 augroup java
-    au!
-    au FileType java iabbrev ff public static void main () {<cr><cr>}
+    autocmd!
+    autocmd FileType java iabbrev ff public static void main () {<cr><cr>}
 augroup END
 
 
 augroup python
-    au!
+    autocmd!
     " Confirm to PEP8
-    au FileType python set tabstop=4 softtabstop=4 expandtab shiftwidth=4 cinwords=if,elif,else,for,while,try,except,finally,def,class
-    au FileType python nnoremap <buffer> <localleader>c I#<esc>
+    autocmd FileType python set tabstop=4 softtabstop=4 expandtab shiftwidth=4 cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
 augroup END
 
 
 augroup perl
-    au!  
-    au BufReadPre,BufNewFile
+    autocmd!  
+    autocmd BufReadPre,BufNewFile
                 \ *.pl,*.pm
                 \ set formatoptions=croq smartindent shiftwidth=2 softtabstop=2 cindent cinkeys='0{,0},!^F,o,O,e' " tags=./tags,tags,~/devel/tags,~/devel/C
     " formatoption:

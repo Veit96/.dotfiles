@@ -66,6 +66,9 @@ alias cp='cp --reflink=auto'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+#powerline-daemon -q
+#. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+
 if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
 
 
