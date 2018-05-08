@@ -34,9 +34,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " ----------- PLUGINS ----------------
 " for html5 support
-Plugin 'html5.vim'
+Plugin 'othree/html5.vim'
 
-" 
 Plugin 'artur-shaik/vim-javacomplete2'
 
 Plugin 'scrooloose/nerdtree'
