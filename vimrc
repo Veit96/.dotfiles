@@ -33,7 +33,15 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " ----------- PLUGINS ----------------
+<<<<<<< HEAD
 " Utility
+=======
+" for html5 support
+Plugin 'othree/html5.vim'
+
+Plugin 'artur-shaik/vim-javacomplete2'
+
+>>>>>>> f3fe3fb721774c871572e433f1cb37ec396738f5
 Plugin 'scrooloose/nerdtree'
 Plugin 'The-NERD-Commenter'
 
