@@ -33,19 +33,23 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " ----------- PLUGINS ----------------
-" for html5 support
-Plugin 'html5.vim'
-
-" 
-Plugin 'artur-shaik/vim-javacomplete2'
-
+" Utility
 Plugin 'scrooloose/nerdtree'
 Plugin 'The-NERD-Commenter'
 
+" Generic programming support
+Plugin 'Townk/vim-autoclose'
+
+" Theme / Interface
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-Plugin 'lifepillar/vim-solarized8'
+" HTML5
+Plugin 'html5.vim'
+
+" Java 
+Plugin 'artur-shaik/vim-javacomplete2'
 
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
 Plugin 'xuhdev/vim-latex-live-preview'
