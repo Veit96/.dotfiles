@@ -33,15 +33,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " ----------- PLUGINS ----------------
-<<<<<<< HEAD
 " Utility
-=======
-" for html5 support
-Plugin 'othree/html5.vim'
 
-Plugin 'artur-shaik/vim-javacomplete2'
-
->>>>>>> f3fe3fb721774c871572e433f1cb37ec396738f5
 Plugin 'scrooloose/nerdtree'
 Plugin 'The-NERD-Commenter'
 
@@ -54,7 +47,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " HTML5
-Plugin 'html5.vim'
+" for html5 support
+Plugin 'othree/html5.vim'
 
 " Java 
 Plugin 'artur-shaik/vim-javacomplete2'
@@ -192,19 +186,14 @@ nnoremap <leader>l :ls<CR>
 
 
 " ---------------------- ABBREVATIONS ----------------------------
-iabbrev @@    veit.karpf@gmail.com
-iabbrev ccopy Copyright 2018 Veit Karpf, all rights reserved.
-iabbrev ssig -- <cr>Veit Karpf<cr>veit.karpf@gmail.com
+let g:AutoCloseExpandSpace = 0 " Make iabbrev work again
+inoreabbrev mymail    veit.karpf@gmail.com
+inoreabbrev ccopy Copyright 2018 Veit Karpf, all rights reserved.
+inoreabbrev ssig -- <cr>Veit Karpf<cr>veit.karpf@gmail.com
 
 
 " ---------------------- AUTOCOMMANDS ----------------------------
 " example events: BufNewFile, BufWritePre, BufRead, FileType
-" template:
-"       augroup nameofthisgroup
-"           au! // reset autocommands, to not load them over and over
-"           au  // autocmd in short
-"       augroub END
-"
 "
 " Use of the filetype plugins, auto completion and indentation support
 set grepprg=grep\ -nH\ $*
@@ -277,5 +266,19 @@ augroup perl
     "   a - auto formatting for paragraphs
     "   n - auto wrap numbered lists
 augroup END
+
+
+"------------------------"
+"NERDTREE PLUGIN SETTINGS
+"------------------------"
+"Shortcut for NERDTreeToggle
+nmap <leader>nt :NERDTreeToggle <CR>
+
+"Show hidden files in NerdTree
+let NERDTreeShowHidden=1
+
+"autopen NERDTree and focus cursor in new document
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
 
 
