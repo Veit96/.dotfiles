@@ -107,6 +107,7 @@ endif
 
 " Vim-airline configuration
 let g:airline#extensions#tabline#enabled = 1 " list of buffers on top
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='simple'
 let g:hybrid_custom_term_colors = 1
