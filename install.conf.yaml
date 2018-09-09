@@ -28,3 +28,4 @@
 - shell:
   - [git submodule update --remote dotbot, Installing submodules]
   - [xrdb -load ~/.Xresources &, Sourcing Xresources]
+# - [command what to do, says what it does]
