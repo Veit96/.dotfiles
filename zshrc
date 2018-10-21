@@ -17,6 +17,13 @@ bindkey -v
 # ranger alias
 alias r='ranger'
 
+# cd & ls
+#autoload -U add-zsh-hook
+#add-zsh-hook -Uz chpwd (){ ls -a; }
+chpwd() {
+  ls -a --color
+}
+
 # xrandr alias
 alias multi='xrandr --output eDP1 --auto --output VGA1 --auto --right-of eDP1'
 alias terra='xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1 && feh --randomize --bg-fill $HOME/media/pictures/wallpapers/wallpapers_current'
