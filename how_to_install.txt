@@ -121,6 +121,12 @@ vim-supertab
 -> pywal:
 wal -i image.png
 
+-> Fixing Invalid MIT-MAGIC-COOKIE-1:
+uncomment 'Defaults env_keep += “HOME”' in /etc/sudoers
+
+-> setting windows to UTC instead of localtime:
+reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
+
 <<<<< ------------- >>>>>>
 PROGRAMMS FOR CERTAIN TASKS
 

@@ -32,6 +32,7 @@ powerline-fonts
 pulseaudio
 python-pip
 python-pywal
+qutebrowser
 ranger
 rofi
 rxvt-unicode

@@ -229,7 +229,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #
 #set $Locker i3lock -f && sleep 1
 #
-set $Locker i3lock -i /home/veit/share/media/wallpapers/pink_nebula.png -t -f -e && sleep 1
+set $Locker i3lock -i /home/veit/share/media/wallpapers/1440x5120/pink_nebula.png -t -f -e && sleep 1
 
 
 

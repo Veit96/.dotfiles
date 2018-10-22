@@ -175,6 +175,16 @@ nnoremap <leader>" ea"<esc>bi"<esc>lel
 " surround visual selection in double quotes
 vnoremap <leader>" <esc>'<i"<esc>'>A"<esc>
 
+" surround word in double asterix
+nnoremap <leader>2* ea**<esc>bbi**<esc>lel
+" surround visual selection in double asterix
+vnoremap <leader>2* <esc>'<i**<esc>'>A**<esc>
+
+" surround word in single asterix
+nnoremap <leader>* ea*<esc>bi*<esc>lel
+" surround visual selection in single asterix
+vnoremap <leader>* <esc>'<i*<esc>'>A*<esc>
+
 " buffer mappings
 nnoremap <leader>n :enew<cr>
 nnoremap <leader>l :bnext<cr>
