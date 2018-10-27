@@ -225,11 +225,12 @@ gaps outer 5
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 
-#set $Locker i3lock -c 26dfec -f -e && sleep 1
+set $Locker i3lock -c 26dfec -f -e && sleep 1
 #
 #set $Locker i3lock -f && sleep 1
 #
-set $Locker i3lock -i /home/veit/share/media/wallpapers/pink_nebula.png -t -f -e && sleep 1
+#set $Locker i3lock -i /home/veit/share/media/wallpapers/pink_nebula.png -t -f -e && sleep 1
+
 
 
 
