@@ -188,7 +188,7 @@ bindsym Ctrl+h exec --no-startup-id mpc prev
 
 bindsym Ctrl+l exec --no-startup-id mpc next
 
-bindsym $mod+b exec dwb
+bindsym $mod+b exec chromium 
 
 focus_follows_mouse no
 
