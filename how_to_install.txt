@@ -132,12 +132,13 @@ PROGRAMMS FOR CERTAIN TASKS
 
 display manager / login manager -> slim
 window manager -> i3
-terminal -> zsh
-app launcher -> rofi
+shell -> zsh
+terminal -> rxvt-unicode
+app launcher -> rofi, dmenu
 aur helper -> yay
 file manager -> nautilus
 browser -> qutebrowser
-wallpaper setter -> nitrogen
+wallpaper setter -> nitrogen, wal
 image viewer -> sxiv 
 pdf viewer -> zathura, okular
 office -> 
