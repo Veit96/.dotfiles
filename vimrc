@@ -33,8 +33,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " ----------- PLUGINS ----------------
-" Utility
 
+" Utility
 Plugin 'scrooloose/nerdtree'
 Plugin 'The-NERD-Commenter'
 
@@ -46,15 +46,22 @@ Plugin 'lifepillar/vim-solarized8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" HTML5
+" --- HTML5 ---
 " for html5 support
 Plugin 'othree/html5.vim'
 
-" Java 
-Plugin 'artur-shaik/vim-javacomplete2'
+" --- Markdown ---
+" pandoc support
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 
+
+" --- Latex ---
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
 Plugin 'xuhdev/vim-latex-live-preview'
+
+" python wal
+Plugin 'dylanaraps/wal.vim'
 " ----------- END PLUGINS ------------
 
 " All of your Plugins must be added before the following line
@@ -94,6 +101,7 @@ set matchpairs+=<:>     " specially for html
 " show linenumbers
 set number              " show line numbers
 set ruler               " show cursor position in status bar
+set relativenumber
 
 " Enable highlighting of the current line
 set cursorline
@@ -104,6 +112,7 @@ set background=dark     " enable for dark terminals
 let base16colorspace=256  " Access colors present in 256 colorspace
 "let g:solarized_use16 = 0
 colorscheme solarized8_high
+"colorscheme wal
 
 " color settings (if terminal/gui supports it)
 if &t_Co > 2 || has("gui_running")
@@ -174,6 +183,16 @@ nnoremap <leader>u bveUel
 nnoremap <leader>" ea"<esc>bi"<esc>lel
 " surround visual selection in double quotes
 vnoremap <leader>" <esc>'<i"<esc>'>A"<esc>
+
+" surround word in double asterix
+nnoremap <leader>2* ea**<esc>bbi**<esc>lel
+" surround visual selection in double asterix
+vnoremap <leader>2* <esc>'<i**<esc>'>A**<esc>
+
+" surround word in single asterix
+nnoremap <leader>* ea*<esc>bi*<esc>lel
+" surround visual selection in single asterix
+vnoremap <leader>* <esc>'<i*<esc>'>A*<esc>
 
 " buffer mappings
 nnoremap <leader>n :enew<cr>

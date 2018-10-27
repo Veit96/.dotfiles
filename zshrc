@@ -21,7 +21,7 @@ alias r='ranger'
 #autoload -U add-zsh-hook
 #add-zsh-hook -Uz chpwd (){ ls -a; }
 chpwd() {
-  ls -a --color
+  ls --color
 }
 
 # xrandr alias
