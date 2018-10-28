@@ -37,6 +37,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Utility
 Plugin 'scrooloose/nerdtree'
 Plugin 'The-NERD-Commenter'
+Plugin 'thinca/vim-quickrun'
 
 " Generic programming support
 Plugin 'Townk/vim-autoclose'
@@ -175,7 +176,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " open .vimrc in vertical split window
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-" make upper case in insert/normal "mode"
+" make upper case in insert/normal mode
 inoremap <leader>u <esc>bveUea
 nnoremap <leader>u bveUel
 
@@ -200,6 +201,9 @@ nnoremap <leader>l :bnext<cr>
 nnoremap <leader>h :bprevious<cr>
 nnoremap <leader>k :bd <BAR> bd #<CR>
 nnoremap <leader>l :ls<CR>
+
+" avoid using U
+nnoremap U :echo "ARE YOU SERIOUS? I THINK YOU JUST MEANT C-r?"<CR>
 
 
 " ---------------------- ABBREVATIONS ----------------------------
@@ -240,7 +244,25 @@ augroup END
 " Markdown Syntax Support
 augroup markdown
     autocmd!
-    autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+    autocmd BufRead,BufNewFile *.md,*.markdown setfiletype markdown
+    autocmd FileType markdown :call <SID>MDSettings()
+    
+"-- pandoc Markdown+LaTeX -------------------------------------------
+function! s:MDSettings()
+    inoremap <buffer> <leader>n \note[item]{}<Esc>i
+    nnoremap <buffer> <leader>b :! pandoc -t beamer % -o %<.pdf<CR><CR>
+    nnoremap <buffer> <leader>c :! pandoc -t latex % -o %<.pdf<CR>
+    nnoremap <buffer> <leader>s :! zathura %<.pdf 2>&1 >/dev/null &<CR><CR>
+
+    " adjust syntax highlighting for LaTeX parts
+    "   inline formulas:
+    syntax region Statement oneline matchgroup=Delimiter start="\$" end="\$"
+    "   environments:
+    syntax region Statement matchgroup=Delimiter start="\\begin{.*}" end="\\end{.*}" contains=Statement
+    "   commands:
+    syntax region Statement matchgroup=Delimiter start="{" end="}" contains=Statement
+endfunction
+
 augroup END
 
 " word ompletion: <c-n>, <c-p>

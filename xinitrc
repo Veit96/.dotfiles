@@ -1,4 +1,4 @@
-xset r rate 300 50 # 1) milisec until key respond 2) repeat per sec
+xset r rate 500 35 # 1) milisec until key respond 2) repeat per sec
 xrdb -load ~/.Xresources &
 
 # wallpaper and colorscheme:
