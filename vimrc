@@ -39,8 +39,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'The-NERD-Commenter'
 Plugin 'thinca/vim-quickrun'
 
-" Generic programming support
+" --- Generic programming support ---
 Plugin 'Townk/vim-autoclose'
+Plugin 'KabbAmine/zeavim.vim' "access zeal (offline docs browser) from within vim
 
 " Theme / Interface
 Plugin 'lifepillar/vim-solarized8'
@@ -56,13 +57,13 @@ Plugin 'othree/html5.vim'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 
-
 " --- Latex ---
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
 Plugin 'xuhdev/vim-latex-live-preview'
 
 " python wal
 Plugin 'dylanaraps/wal.vim'
+
 " ----------- END PLUGINS ------------
 
 " All of your Plugins must be added before the following line

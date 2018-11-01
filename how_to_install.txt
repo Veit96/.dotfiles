@@ -143,6 +143,8 @@ image viewer -> sxiv
 pdf viewer -> zathura, okular
 office -> 
 video/audo player -> smplayer, mpv
+taskmanager -> deepin-system-monitor
+offline docs browser -> zeal
 
 
 
