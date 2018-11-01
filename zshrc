@@ -17,6 +17,9 @@ bindkey -v
 # ranger alias
 alias r='ranger'
 
+# git alias
+alias g="git add . && git commit -m "update" && git push"
+
 # cd & ls
 #autoload -U add-zsh-hook
 #add-zsh-hook -Uz chpwd (){ ls -a; }
