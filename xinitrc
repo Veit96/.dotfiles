@@ -4,8 +4,8 @@ xrdb -load ~/.Xresources &
 # wallpaper and colorscheme:
 # wallpaper and colorscheme
 # -R restores the last colorscheme that was in use. -n skip setting the wallpaper
-wal -R
-# nitrogen --restore &
+wal -R -n
+nitrogen --restore &
 
 exec i3
 xset -b

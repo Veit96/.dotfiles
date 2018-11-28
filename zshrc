@@ -1,10 +1,13 @@
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+#zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' menu select
 zstyle :compinstall filename '/home/veit/.zshrc'
 
-autoload -Uz compinit
+autoload -Uz compinit promptinit
 compinit
+promptinit
+
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -80,7 +83,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #powerline-daemon -q
 #. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
-if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
-
+if [ -f /usr/bin/neofetch ]; then neofetch; fi
 
 export PATH=$PATH:~/bin:~/.local/bin:~/.gem/ruby/2.2.0/bin:
