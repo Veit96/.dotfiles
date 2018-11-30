@@ -246,6 +246,7 @@ augroup END
 augroup markdown
     autocmd!
     autocmd BufRead,BufNewFile *.md,*.markdown setfiletype markdown
+    autocmd FileType markdown setlocal spell spelllang=en_us,en_gb,de_ch
     autocmd FileType markdown :call <SID>MDSettings()
     
 "-- pandoc Markdown+LaTeX -------------------------------------------
