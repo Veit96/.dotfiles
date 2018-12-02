@@ -11,9 +11,13 @@ gvim
 htop
 i3-gaps
 i3lock
+lightdm
+lightdm-webkit2-greeter
+lightdm-webkit-theme-litarvan
 mpv
 nautilus
 ncdu
+neofetch
 nitrogen
 ntfs-3g
 okular
@@ -29,11 +33,11 @@ qutebrowser
 ranger
 rofi
 rxvt-unicode
-screenfetch
 smplayer
 sxiv
 texlive-most
 tmux
+transmission-gtk
 ttf-font-awesome
 urxvt-perls
 xorg-server

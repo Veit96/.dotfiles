@@ -11,6 +11,7 @@
 - link:
     #~/.dotfiles: ''
     ~/.xinitrc: xinitrc
+    ~/.xprofile: xprofile
     ~/.zshrc: 
         force: true
         path: zshrc
