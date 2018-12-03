@@ -70,7 +70,7 @@ pacstrap /mnt base base-devel intel-ucode networkmanager vim
 `genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
-echo myhost > /etc/hostname
+echo myhostname > /etc/hostname
 vim /etc/locale.gen  # uncomment all en_US, de_CH, de_DE
 locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf  # (or: de_CH.UTF-8)

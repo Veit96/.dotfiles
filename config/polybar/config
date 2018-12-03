@@ -24,6 +24,61 @@ alert = #bd2c40
 ;secondary = ${xrdb:color2:#222}
 ;alert = ${xrdb:color3:#222}
 
+[bar/thinkpadx260]
+monitor = ${env:MONITOR:DP-1}
+width = 100%
+height = 27
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = false
+bottom = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+;line under modules
+line-size = 3
+line-color = #f00
+
+;controll border:
+border-size = 0
+;border-left-size = 0
+;border-right-size = 0
+;border-top-size = 0
+;border-bottom-size = 0
+border-color = #00000000 
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=12;1
+font-1 = unifont:fontformat=truetype:size=12:antialias=false;1
+font-2 = siji:pixelsize=10;1
+
+modules-left = i3 xkeyboard
+modules-center = 
+modules-right = root home share xbacklight volume wlan eth cpu memory temperature battery date powermenu
+
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+wm-restack = i3
+
+;avoid having bar visible when in fullscreen mode
+;override-redirect = true
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
 
 [bar/desktop]
 monitor = ${env:MONITOR:DP-1}
@@ -79,6 +134,7 @@ wm-restack = i3
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
 
 [module/bspwm]
 type = internal/bspwm

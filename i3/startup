@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# deprecated
+
 killall polybar
 
 (sleep 0.1; ~/.config/polybar/launch.sh) &

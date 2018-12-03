@@ -8,17 +8,21 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
+name=$(hostname) # enables to load machine specific bars...
+
+sleep 0.1
+
 # Launch on multi monitor
 if type "xrandr"; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload desktop -c $HOME/.config/polybar/config &
+  for monitor in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=${monitor} polybar --reload ${name}& # -c $HOME/.config/polybar/config &
   done
 else
-  polybar --reload desktop -c $HOME/.config/polybar/config &
+  polybar --reload ${name}& # -c $HOME/.config/polybar/config &
 fi
 
 # Launch bar1 and bar2
-#polybar bar1 &
-#polybar bar2 &
+#polybar -r bar1
+#polybar -r bar2
 
 echo "Bars launched..."
