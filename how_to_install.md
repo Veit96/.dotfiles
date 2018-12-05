@@ -30,23 +30,33 @@ header-includes: |
 loadkeys de_CH-latin1
 ```
 
+## set time
+```
+timedatectl status
+timedatectl set-ntp true
+```
+
 ## partitioning and mounting
 
 ```bash
 gdisk /dev/sdx
 
 (mkfs.fat -F 32 -n EFIBOOT /dev/sdx#)  
-mkfs.ext4 -L arch /dev/sdx#  
-mkswap -L swap /dev/sdx#  
-mount -L arch /mnt  
-mkdir & mount  
+mkfs.ext4 -L arch_root /dev/sdx#  
+mkfs.ext4 -L arch_home /dev/sdx#  
+mkswap -L arch_swap /dev/sdx#  
+
+mount -L arch_root /mnt  
+mkdir /mnt/boot
+mkdir /mnt/home
+mount -L arch_home /mnt/home
+mount -L arch_boot /mnt/boot
 swapon -L swap
 ```
 
 ## setup network connection (wifi-menu)
 
 ```bash
-loadkeys de_CH-latin1
 wifi-menu
 ```
 
@@ -57,18 +67,14 @@ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 vim /etc/pacman.d/mirrorlist
 ```
 
-## set time
-```
-timedatectl status
-timedatectl set-ntp true
-```
-
 ## install base system
 
 ```bash
 pacstrap /mnt base base-devel intel-ucode networkmanager vim
-`genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt/
 ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 echo myhostname > /etc/hostname
 vim /etc/locale.gen  # uncomment all en_US, de_CH, de_DE
@@ -248,6 +254,7 @@ uncomment `Defaults env_keep += “HOME”` in `/etc/sudoers`
 - offline docs browser -> zeal
 - firewall -> ufw
 - BitTorrent client -> transmission
+- Screenshot -> deepin-screenshot
 
 
 

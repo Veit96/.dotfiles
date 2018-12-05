@@ -4,6 +4,7 @@ chromium
 cmake
 compton
 cups
+deepin-screenshot
 dmenu
 git
 grub
