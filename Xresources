@@ -1,34 +1,61 @@
-
-
 ! terminal colors ------------------------------------------------------------
 
-! tangoesque scheme
+!! tangoesque scheme
+!*background: #111111
+!*foreground: #babdb6
+!! Black (not tango) + DarkGrey
+!*color0:  #000000
+!*color8:  #555753
+!! DarkRed + Red
+!*color1:  #ff6565
+!*color9:  #ff8d8d
+!! DarkGreen + Green
+!*color2:  #93d44f
+!*color10: #c8e7a8
+!! DarkYellow + Yellow
+!*color3:  #eab93d
+!*color11: #ffc123
+!! DarkBlue + Blue
+!*color4:  #204a87
+!*color12: #3465a4
+!! DarkMangenta + Mangenta
+!*color5:  #ce5c00
+!*color13: #f57900
+!!DarkCyan + Cyan (both not tango)
+!*color6:  #89b6e2
+!*color14: #46a4ff
+!! LightGrey + White
+!*color7:  #cccccc
+!*color15: #ffffff
+
+! Tango colors:
 *background: #111111
 *foreground: #babdb6
-! Black (not tango) + DarkGrey
-*color0:  #000000
+! black
+*color0:  #2E3436
 *color8:  #555753
-! DarkRed + Red
-*color1:  #ff6565
-*color9:  #ff8d8d
-! DarkGreen + Green
-*color2:  #93d44f
-*color10: #c8e7a8
-! DarkYellow + Yellow
-*color3:  #eab93d
-*color11: #ffc123
-! DarkBlue + Blue
-*color4:  #204a87
-*color12: #3465a4
-! DarkMangenta + Mangenta
-*color5:  #ce5c00
-*color13: #f57900
-!DarkCyan + Cyan (both not tango)
+! red
+*color1:  #a40000
+*color9:  #EF2929
+! green
+*color2:  #4E9A06
+*color10: #8AE234
+! yellow
+*color3:  #C4A000
+*color11: #FCE94F
+! blue
+*color4:  #3465A4
+*color12: #729FCF
+! purple
+*color5:  #75507B
+*color13: #AD7FA8
+! orange (replaces cyan)
 *color6:  #89b6e2
 *color14: #46a4ff
-! LightGrey + White
-*color7:  #cccccc
-*color15: #ffffff
+! white
+*color7:  #babdb9
+*color15: #EEEEEC
+
 
 !------------------------------------------------------------------------------
 ! Xft settings
@@ -45,13 +72,12 @@ urxvt.xftAntialias: true
 !------------------------------------------------------------------------------
 ! u r x v t
 
-URxvt*geometry:         112x22
+URxvt.geometry:         112x22
 
 ! Fonts
 
-URxvt*font:            xft:SourceCodePro:size=13
-URxvt*letterSpace: -2
-
+URxvt.font:            xft:SourceCodePro:size=13
+URxvt.letterSpace: -2
 
 !Courier
 !URxvt.font: xft:Courier:size=13
@@ -78,43 +104,43 @@ URxvt*letterSpace: -2
 !URxvt.font: xft:Droid Sans Mono:size=13
 !URxvt.letterSpace: -1
 
-!DejaVu Sans
-!URxvt.font: xft:DejaVu Sans Mono:size=13
-!URxvt.letterSpace: -1
-
-!Manospace
-!URxvt.font: xft:Monospace:size=13
-!URxvt.letterSpace: -1
-
 !Terminus
-!URxvt.font: xft:Terminus:size=13
+!URxvt.font: xft:Terminus:size=11
+!URxvt.letterSpace: -6
 
 
 !
 ! do not scroll with output
-URxvt*scrollTtyOutput: false
+URxvt.scrollTtyOutput: false
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
+URxvt.scrollWithBuffer: true
 ! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
-URxvt*scrollBar:        false
-URxvt*scrollBar_right:  true
-URxvt*scrollColor:        #000000
-URxvt*perl-ext-common: default,resize-font
-URxvt*colorUL: #4682B4
-URxvt*depth: 32
-URxvt*background: rgb:000/000/020
+URxvt.scrollTtyKeypress: true
+URxvt.scrollBar:        false
+URxvt.scrollBar_right:  true
+URxvt.scrollColor:        #000000
+URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select
+URxvt.colorUL: #4682B4
+URxvt.depth: 32
+URxvt.background: rgb:000/000/020
 
 ! bindings for resize-font
-URxvt.keysym.C-Down:	resize-font:smaller
-URxvt.keysym.C-Up:	resize-font:bigger
+!URxvt.keysym.C-Down:resize-font:smaller
+!URxvt.keysym.C-Up:	resize-font:bigger
 URxvt.keysym.C-r:	resize-font:reset
 
-! yankable URLs (no mouse)
-URxvt.perl-ext: default,url-select
+! url-select: yankable URLs (no mouse)
+! alt+u -> select url
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/qutebrowser
+URxvt.url-select.launcher: /usr/bin/chromium
 URxvt.url-select.underline: true
+
+! keyboard-select: "vim mode"C
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+! matcher (clickable links)
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
 
 URxvt.transparent:   true
 URxvt.shading:       25

@@ -24,8 +24,6 @@ font pango:DejaVu Sans Mono 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -35,7 +33,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+shift+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -b -i'
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -b -i'
 # rofi binding, configs are located in ~/.config/rofi/config
 bindsym $mod+d exec rofi -show drun
 
@@ -45,23 +43,17 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# resize window (you can also use the mouse for that)
+bindsym $mod+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Down resize shrink height 10 px or 10 ppt
+bindsym $mod+Up resize grow height 10 px or 10 ppt
+bindsym $mod+Right resize grow width 10 px or 10 ppt
 
 # split in horizontal orientation
 bindsym $mod+g split h
@@ -144,7 +136,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -160,6 +151,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+x [urgent=latest] focus
 
 
+# FUNCTION KEYS
+
 bindsym XF86AudioLowerVolume exec  --no-startup-id amixer -q set Master 1-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 1+
 
@@ -171,12 +164,10 @@ bindsym XF86KbdBrightnessUp   exec --no-startup-id asus-kbd-backlight up
 bindsym XF86MonBrightnessDown  exec  xbacklight -dec 10
 bindsym XF86MonBrightnessUp  exec  xbacklight -inc 10
 
-bindsym Ctrl+g exec --no-startup-id mpc toggle
-bindsym Ctrl+h exec --no-startup-id mpc prev
+#bindsym Ctrl+g exec --no-startup-id mpc toggle
+#bindsym Ctrl+h exec --no-startup-id mpc prev
 
-bindsym Ctrl+l exec --no-startup-id mpc next
-
-bindsym $mod+b exec chromium 
+#bindsym Ctrl+l exec --no-startup-id mpc next
 
 focus_follows_mouse no
 
@@ -194,7 +185,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 
 }
-bindsym $mod+o mode "$mode_system"
+bindsym $mod+q mode "$mode_system"
 
 
 # no bar on top of each window...
@@ -202,9 +193,21 @@ new_window pixel
 # no border
 for_window [class="^.*"] border pixel 3
 
+# GAPS
+
 # settings concerning i3-gaps
 gaps inner 10
 gaps outer 5
+# resize gaps (current workspace)
+bindsym $mod+Shift+Up gaps outer current minus 5
+bindsym $mod+Shift+Down gaps outer current plus 5
+bindsym $mod+Shift+Right gaps inner current minus 5
+bindsym $mod+Shift+Left gaps inner current plus 5
+# resize gaps (all workspace)
+bindsym $mod+o gaps outer all plus 5
+bindsym $mod+Shift+o gaps outer all minus 5
+bindsym $mod+i gaps inner all plus 5
+bindsym $mod+Shift+i gaps inner all minus 5
 
 #exec --no-startup-id compton -CGb
 
@@ -225,7 +228,20 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 
+#  LAUNCH SHORTCUTS
+
+# Browser
+bindsym $mod+b exec chromium 
+# Terminal
+bindsym $mod+Return exec urxvt
+# Spotify
+bindsym Mod4+s exec Spotify
+
+
+# AUTOSTART
+
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id $HOME/.i3/startup # work around, probably because monitor not yet detected or loaded?
 
 
+# vim:filetype=i3config
