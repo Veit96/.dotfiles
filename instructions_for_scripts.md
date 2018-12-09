@@ -125,6 +125,7 @@ hwclock -w
 
 ```bash
 pacman -S $(< my_packages.txt)
+pacman -S xorg-drivers
 ```
 
 
@@ -182,6 +183,9 @@ webkit-theme = litarvan
 
 # LAPTOP/NOTEBOOK SPECIFIC
 
+```bash
+pacman -S xf86-input-synaptics
+```
 
 # DUAL BOOTING WITH WINDOWS
 
