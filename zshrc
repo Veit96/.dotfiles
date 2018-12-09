@@ -17,9 +17,6 @@ SAVEHIST=5000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-# ranger alias
-alias r='ranger'
-
 alias ls='ls --color=auto'
 # git alias
 alias g="git add . && git commit && git push"
@@ -31,23 +28,29 @@ chpwd() {
   ls --color
 }
 
-# xrandr alias
-alias multi='xrandr --output eDP1 --auto --output VGA1 --auto --right-of eDP1'
-alias terra='xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1 && feh --randomize --bg-fill $HOME/media/pictures/wallpapers/wallpapers_current'
+# Use Copy on Write where appropriate
+alias cp='cp --reflink=auto'
+
+# Some aliases
+alias e="$EDITOR"
+alias v="vim"
+alias sv="sudo vim"
+alias r="ranger"
+alias sr="sudo ranger"
+alias mkd="mkdir -pv"
+
+# Adding color
+alias ls='ls -hN --color=auto --group-directories-first'
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
 
 # keyboard K780 use regular F1..12 instead of media keys
 alias chk='solaar config k780 fn-swap false'
 
-# set wallpaper
-alias goal='feh --bg-fill /home/veit/media/pictures/wallpapers/wallpapers_current/triumph-street-triple-r_2333.jpg'
-alias bmwgs='feh --bg-fill /home/veit/media/pictures/wallpapers/wallpapers_current/bmwr1200gs.jpg'
-alias cwp='feh --randomize --bg-fill /home/veit/media/pictures/wallpapers/wallpapers_old/*'
-alias cwpn='feh --randomize --bg-fill /home/veit/share/media/wallpapers/'
-
 # Pacman alias examples
 alias pacupg='sudo pacman -Syu'		# Synchronize with repositories and then upgrade packages that are out of date on the local system.
 alias pacin='sudo pacman -S'		# Install specific package(s) from the repositories
-alias pacins='sudo pacman -U'		# Install specific package not from the repositories but from a file 
+alias pacins='sudo pacman -U'		# Install specific package not from the repositories but from a file
 alias pacre='sudo pacman -R'		# Remove the specified package(s), retaining its configuration(s) and required dependencies
 alias pacrem='sudo pacman -Rns'		# Remove the specified package(s), its configuration(s) and unneeded dependencies
 alias pacrep='pacman -Si'		# Display information about a given package in the repositories
@@ -58,7 +61,7 @@ alias paclo="pacman -Qdt"		# List all packages which are orphaned
 alias pacc="sudo pacman -Sc"		# Clean cache - delete all not currently installed package files
 alias paccc="sudo pacman -Scc"		# Clean cache - delete all not currently installed package files
 alias paclf="pacman -Ql"		# List all files installed by a given package
-alias pacexpl="pacman -D --asexp"	# Mark one or more installed packages as explicitly installed 
+alias pacexpl="pacman -D --asexp"	# Mark one or more installed packages as explicitly installed
 alias pacimpl="pacman -D --asdep"	# Mark one or more installed packages as non explicitly installed
 
 alias umnt="udevil umount"
@@ -75,8 +78,6 @@ alias pacmir='sudo pacman -Syy'                    # Force refresh of all packag
 export VISUAL=vim
 export EDITOR=vim
 
-# Use Copy on Write where appropriate
-alias cp='cp --reflink=auto'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
