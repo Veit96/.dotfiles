@@ -142,7 +142,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 #bar {
 #        status_command $HOME/bin/conky-i3bar
-#        position       top 
+#        position       top
 #}
 # bar toggle, hide or show
 #bindsym $mod+m bar mode toggle
@@ -178,7 +178,7 @@ mode "$mode_system" {
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym x exec --no-startup-id systemctl poweroff -i, mode "default"  
+    bindsym x exec --no-startup-id systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -209,7 +209,6 @@ bindsym $mod+Shift+o gaps outer all minus 5
 bindsym $mod+i gaps inner all plus 5
 bindsym $mod+Shift+i gaps inner all minus 5
 
-#exec --no-startup-id compton -CGb
 
 #set $Locker i3lock -c 26dfec -f -e && sleep 1
 #
@@ -231,7 +230,7 @@ client.background       #ffffff
 #  LAUNCH SHORTCUTS
 
 # Browser
-bindsym $mod+b exec chromium 
+bindsym $mod+b exec chromium
 # Terminal
 bindsym $mod+Return exec urxvt
 # Spotify
@@ -243,5 +242,6 @@ bindsym Mod4+s exec Spotify
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id $HOME/.i3/startup # work around, probably because monitor not yet detected or loaded?
 
+#exec --no-startup-id compton -CGb
 
 # vim:filetype=i3config
