@@ -47,21 +47,21 @@ border-size = 0
 ;border-right-size = 0
 ;border-top-size = 0
 ;border-bottom-size = 0
-border-color = #00000000 
+border-color = #00000000
 
 padding-left = 0
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-0 = fixed:pixelsize=12;1
 font-1 = unifont:fontformat=truetype:size=12:antialias=false;1
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3 xkeyboard
-modules-center = 
-modules-right = root home share xbacklight volume wlan eth cpu memory temperature battery date powermenu
+modules-center =
+modules-right = root home share xbacklight volume wlan eth cpu memory temperature battery battery1 date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -103,7 +103,7 @@ border-size = 0
 ;border-right-size = 0
 ;border-top-size = 0
 ;border-bottom-size = 0
-border-color = #00000000 
+border-color = #00000000
 
 padding-left = 0
 padding-right = 2
@@ -116,7 +116,7 @@ font-1 = unifont:fontformat=truetype:size=12:antialias=false;1
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3 xkeyboard
-modules-center = 
+modules-center =
 modules-right = root home share xbacklight volume wlan eth cpu memory temperature battery date powermenu
 
 tray-position = right
@@ -287,7 +287,7 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 format = <label> <ramp-coreload>
-label = CPU %percentage:2%%  
+label = CPU %percentage:2%%
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
 ramp-coreload-2 = ▃
@@ -316,7 +316,7 @@ bar-used-fill = ▐
 bar-used-empty = ▐
 bar-used-empty-foreground = #444444
 
-format = <label> <bar-used>
+format = <label>
 
 [module/wlan]
 type = internal/network
@@ -391,7 +391,7 @@ bar-volume-foreground-3 = ${colors.primary}
 bar-volume-foreground-4 = ${colors.primary}
 bar-volume-foreground-5 = ${colors.primary}
 bar-volume-foreground-6 = ${colors.alert}
-bar-volume-gradient = true 
+bar-volume-gradient = true
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
@@ -426,6 +426,34 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
+
+[module/battery1]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
 
 [module/temperature]
 type = internal/temperature
