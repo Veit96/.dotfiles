@@ -1,7 +1,18 @@
 #!/bin/sh
+# Runs on login
+export EDITOR="vim"
+export VISUAL="vim"
+export TERMINAL="rxvt-unicode-256color"
+export BROWSER="chromium"
+export READER="zathura"
+
+#[ -f ~/.zshrc ] && source ~/.zshrc
+[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+
+setxkbmap -option caps:swapescape
+
 # set primary monitor (needed because, set differently with lightdm)
 xrandr --output HDMI-1 --primary &
 xset r rate 500 35 & # 1) milisec until key respond 2) repeat per sec
-xrdb -load ~/.Xresources & # source Xresrouces
 wal -R -n & # -R restores the last colorscheme that was in use. -n skip setting the wallpaper
 nitrogen --restore & # restore wallpaper

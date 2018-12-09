@@ -10,7 +10,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 name=$(hostname) # enables to load machine specific bars...
 
-sleep 0.2
+sleep 0.1
 
 # Launch on multi monitor
 if type "xrandr"; then
