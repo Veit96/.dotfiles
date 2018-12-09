@@ -113,7 +113,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+set $resize resize: ->width: (l) larger, (h) smaller, ->height: (j) larger, (k) smaller
+mode "$resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -136,7 +137,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "$resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -171,7 +172,7 @@ bindsym XF86MonBrightnessUp  exec  xbacklight -inc 10
 
 focus_follows_mouse no
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (x) shutdown
+set $mode_system System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (x) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
@@ -187,6 +188,9 @@ mode "$mode_system" {
 }
 bindsym $mod+q mode "$mode_system"
 
+#set $Locker i3lock -c 26dfec -f -e && sleep 1
+#set $Locker i3lock -f && sleep 1
+set $Locker i3lock -i /home/veit/share/media/wallpapers/1440x5120/pink_nebula.png -t -f -e && sleep 1
 
 # no bar on top of each window...
 new_window pixel
@@ -194,29 +198,33 @@ new_window pixel
 for_window [class="^.*"] border pixel 3
 
 # GAPS
-
 # settings concerning i3-gaps
 gaps inner 10
 gaps outer 5
-# resize gaps (current workspace)
-bindsym $mod+Shift+Up gaps outer current minus 5
-bindsym $mod+Shift+Down gaps outer current plus 5
-bindsym $mod+Shift+Right gaps inner current minus 5
-bindsym $mod+Shift+Left gaps inner current plus 5
-# resize gaps (all workspace)
-bindsym $mod+o gaps outer all plus 5
-bindsym $mod+Shift+o gaps outer all minus 5
-bindsym $mod+i gaps inner all plus 5
-bindsym $mod+Shift+i gaps inner all minus 5
+set $gaps resize gaps on current workspace (h, j, k, l), on all workspaces (Shift + h, j, k, l)
+mode "$gaps" {
+
+    # resize gaps (current workspace)
+    bindsym l gaps outer current minus 5
+    bindsym h gaps outer current plus 5
+    bindsym k gaps inner current minus 5
+    bindsym j gaps inner current plus 5
+
+    # resize gaps (all workspace)
+    bindsym Shift+l gaps outer all minus 5
+    bindsym Shift+h gaps outer all plus 5
+    bindsym Shift+k gaps inner all minus 5
+    bindsym Shift+j gaps inner all plus 5
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+
+}
+bindsym $mod+Shift+g mode "$gaps"
 
 
-#set $Locker i3lock -c 26dfec -f -e && sleep 1
-#
-#set $Locker i3lock -f && sleep 1
-#
-set $Locker i3lock -i /home/veit/share/media/wallpapers/1440x5120/pink_nebula.png -t -f -e && sleep 1
-
-
+# COLORS
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #29bcb0
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
@@ -227,7 +235,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 
-#  LAUNCH SHORTCUTS
+# LAUNCH SHORTCUTS
 
 # Browser
 bindsym $mod+b exec chromium
@@ -241,7 +249,5 @@ bindsym Mod4+s exec Spotify
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id $HOME/.i3/startup # work around, probably because monitor not yet detected or loaded?
-
-#exec --no-startup-id compton -CGb
 
 # vim:filetype=i3config
