@@ -3,7 +3,7 @@
       create: true # create parent dir to the link as needed (default:false)
       relink: true # removes the old target if it's a symlink (default:false)
       force: false # removes the old target, file or folder, and forces a new link (default:false)
-      #glob: treat a * character as a wildcard, and perform link operations on all of those matches (default:false)  
+      #glob: treat a * character as a wildcard, and perform link operations on all of those matches (default:false)
 
 - clean: ['~']
 
@@ -12,12 +12,11 @@
     #~/.dotfiles: ''
     ~/.xinitrc: xinitrc
     ~/.xprofile: xprofile
-    ~/.zshrc: 
+    ~/.zshrc:
         force: true
         path: zshrc
     ~/.vimrc: vimrc
     ~/.latexmkrc: latexmkrc
-    ~/.i3: i3
     ~/.Xresources: Xresources
 
     ~/.config/: # performs linking on all files in config/*
