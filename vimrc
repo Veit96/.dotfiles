@@ -121,11 +121,12 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
+
 " Vim-airline configuration
 let g:airline#extensions#tabline#enabled = 1 " list of buffers on top
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
-let g:airline_theme= 'wombat'
+let g:airline_theme= 'aurora' " good options: atomic,understated
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 let g:airline_powerline_fonts = 1
@@ -207,7 +208,7 @@ let g:AutoCloseExpandSpace = 0 " Make iabbrev work again
 inoreabbrev mymail    veit.karpf@gmail.com
 inoreabbrev ccopy Copyright 2018 Veit Karpf, all rights reserved.
 inoreabbrev ssig -- <cr>Veit Karpf<cr>veit.karpf@gmail.com
-
+inoreabbrev shscr #!/bin/sh<cr>
 
 " ---------------------- AUTOCOMMANDS ----------------------------
 " example events: BufNewFile, BufWritePre, BufRead, FileType
@@ -284,7 +285,7 @@ augroup END
 
 augroup java
     autocmd!
-    autocmd FileType java iabbrev ff public static void main () {<cr><cr>}
+    autocmd FileType java inoreabbrev ff public static void main () {<cr><cr>}
 augroup END
 
 

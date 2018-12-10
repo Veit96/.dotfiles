@@ -97,6 +97,7 @@ reboot
 # add user and choose group
 
 ```bash
+<<<<<<< HEAD
 useradd -m -g users -s /bin/bash user_name
 passwd user_name
 
@@ -117,7 +118,14 @@ systemctl enable org.cups.cupsd.service
 systemctl enable systemd-timesyncd.service
 systemctl start systemd-timesyncd.service
 hwclock -w
+=======
+# setup network connection:
+systemctl enable NetworkManager.service
+nmtui
+>>>>>>> d4ac72561191cd6e1bdb1e008df8b3e71204b43e
 
+# launch third script:
+./script_install3.sh
 ```
 
 
@@ -128,9 +136,13 @@ hwclock -w
 ```bash
 pacman -S $(< my_packages.txt)
 pacman -S xorg-drivers
+<<<<<<< HEAD
 zsh
 chsh -l
 chsh -s /bin/zsh
+=======
+pacman -S libinput
+>>>>>>> d4ac72561191cd6e1bdb1e008df8b3e71204b43e
 ```
 
 
