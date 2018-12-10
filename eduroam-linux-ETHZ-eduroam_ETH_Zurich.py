@@ -241,7 +241,7 @@ class InstallerData:
                     inp = str(raw_input(prompt + ": "))
                 except:
                     inp = str(input(prompt + ": "))
-                output = inp.strip().decode('utf-8')
+                output = 'karpfv@student-net.ethz.ch' #inp.strip().decode('utf-8')
                 if output != '':
                     return output
 

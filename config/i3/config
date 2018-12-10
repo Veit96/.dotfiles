@@ -191,7 +191,7 @@ mode "$mode_system" {
 
 #set $Locker i3lock -c 26dfec -f -e && sleep 1
 #set $Locker i3lock -f && sleep 1
-set $Locker i3lock -i $HOME/.dotfiles/img/lock.png -t -f -e && sleep 1
+set $Locker i3lock -i $HOME/.config/img/lock.png -t -f -e && sleep 1
 
 # no bar on top of each window...
 new_window pixel
