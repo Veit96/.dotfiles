@@ -93,37 +93,6 @@ reboot
 # login as root
 ```
 
-
-# add user and choose group
-
-```bash
-<<<<<<< HEAD
-useradd -m -g users -s /bin/bash user_name
-passwd user_name
-
-vim /etc/sudoers
-%wheel ALL=(ALL) ALL
-
-gpasswd -a user_name wheel
-gpasswd -a user_name audio
-# add to audio,video,games,power too?
-
-systemctl enable NetworkManager.service
-
-pacman -S acpid dbus avahi cups cronie
-systemctl enable acpid
-systemctl enable avahi-daemon
-systemctl enable cronie
-systemctl enable org.cups.cupsd.service
-systemctl enable systemd-timesyncd.service
-systemctl start systemd-timesyncd.service
-hwclock -w
-=======
-# setup network connection:
-systemctl enable NetworkManager.service
-nmtui
->>>>>>> d4ac72561191cd6e1bdb1e008df8b3e71204b43e
-
 # launch third script:
 ./script_install3.sh
 ```
@@ -136,13 +105,10 @@ nmtui
 ```bash
 pacman -S $(< my_packages.txt)
 pacman -S xorg-drivers
-<<<<<<< HEAD
 zsh
 chsh -l
 chsh -s /bin/zsh
-=======
 pacman -S libinput
->>>>>>> d4ac72561191cd6e1bdb1e008df8b3e71204b43e
 ```
 
 
