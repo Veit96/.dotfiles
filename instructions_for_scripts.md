@@ -96,26 +96,12 @@ reboot
 # add user and choose group
 
 ```bash
-useradd -m -g users -s /bin/bash user_name
-passwd user_name
-
-vim /etc/sudoers
-%wheel ALL=(ALL) ALL
-
-gpasswd -a user_name wheel
-gpasswd -a user_name audio
-# add to audio,video,games,power too?
-
-pacman -S acpid dbus avahi cronie
-systemctl enable acpid
-systemctl enable avahi-daemon
-systemctl enable cronie
-systemctl enable org.cups.cupsd.service
+# setup network connection:
 systemctl enable NetworkManager.service
-systemctl enable systemd-timesyncd.service
-systemctl start systemd-timesyncd.service
-hwclock -w
+nmtui
 
+# launch third script:
+./script_install3.sh
 ```
 
 
@@ -126,6 +112,7 @@ hwclock -w
 ```bash
 pacman -S $(< my_packages.txt)
 pacman -S xorg-drivers
+pacman -S libinput
 ```
 
 

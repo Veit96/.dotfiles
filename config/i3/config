@@ -34,6 +34,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -b -i'
+
 # rofi binding, configs are located in ~/.config/rofi/config
 bindsym $mod+d exec rofi -show drun
 
@@ -173,6 +174,7 @@ bindsym XF86MonBrightnessUp  exec  xbacklight -inc 10
 focus_follows_mouse no
 
 set $mode_system System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (x) shutdown
+bindsym $mod+q mode "$mode_system"
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
@@ -186,11 +188,10 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 
 }
-bindsym $mod+q mode "$mode_system"
 
 #set $Locker i3lock -c 26dfec -f -e && sleep 1
 #set $Locker i3lock -f && sleep 1
-set $Locker i3lock -i /home/veit/share/media/wallpapers/1440x5120/pink_nebula.png -t -f -e && sleep 1
+set $Locker i3lock -i $HOME/.dotfiles/img/lock.png -t -f -e && sleep 1
 
 # no bar on top of each window...
 new_window pixel
@@ -202,8 +203,8 @@ for_window [class="^.*"] border pixel 3
 gaps inner 10
 gaps outer 5
 set $gaps resize gaps on current workspace (h, j, k, l), on all workspaces (Shift + h, j, k, l)
+bindsym $mod+Shift+g mode "$gaps"
 mode "$gaps" {
-
     # resize gaps (current workspace)
     bindsym l gaps outer current minus 5
     bindsym h gaps outer current plus 5
@@ -221,7 +222,6 @@ mode "$gaps" {
     bindsym Escape mode "default"
 
 }
-bindsym $mod+Shift+g mode "$gaps"
 
 
 # COLORS
@@ -241,9 +241,21 @@ client.background       #ffffff
 bindsym $mod+b exec chromium
 # Terminal
 bindsym $mod+Return exec urxvt
-# Spotify
-bindsym Mod4+s exec Spotify
 
+# Press $mod+o to open launch shortcuts
+set $mode_launcher Launch: [c]hromium [t]erminal [r]anger [s]potify [v]im [z]athura
+bindsym $mod+o mode "$mode_launcher"
+mode "$mode_launcher" {
+    bindsym c exec chromium
+    bindsym t exec urxvt
+    bindsym r exec ranger
+    bindsym s exec spotify
+    bindsym v exec vim
+    bindsym z exec zathura
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
 
 # AUTOSTART
 

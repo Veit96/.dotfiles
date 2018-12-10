@@ -23,3 +23,9 @@ rofi.separator-style: solid
 rofi.hide-scrollbar: true
 rofi.auto-select: false
 
+# wal color:
+# Dark theme.
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+
+# Light theme.
+#rofi.theme: ~/.cache/wal/colors-rofi-light.rasi
