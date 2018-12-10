@@ -9,7 +9,7 @@ export READER="zathura"
 #[ -f ~/.zshrc ] && source ~/.zshrc
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
-setxkbmap -option caps:swapescape
+setxkbmap -option caps:swapescape &
 
 # set primary monitor (needed because, set differently with lightdm)
 xrandr --output HDMI-1 --primary &

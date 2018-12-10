@@ -61,6 +61,7 @@ wifi-menu
 
 ```bash
 # get scripts
+pacman -S git
 git clone https://github.com/Veit96/dotfiles.git dotfiles
 
 # launch first script
@@ -69,8 +70,8 @@ git clone https://github.com/Veit96/dotfiles.git dotfiles
 
 # configure fstab, the options should be like this (for SSD):
 root: rw,defaults,noatime,discard	0 1
-boot: rw,noatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
 home: rw,defaults,noatime,discard  0 2
+boot: rw,noatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
 swap: defaults,noatime,discard,pri=-2   0 0
 
 # change root to new system
@@ -106,12 +107,13 @@ gpasswd -a user_name wheel
 gpasswd -a user_name audio
 # add to audio,video,games,power too?
 
-pacman -S acpid dbus avahi cronie
+systemctl enable NetworkManager.service
+
+pacman -S acpid dbus avahi cups cronie
 systemctl enable acpid
 systemctl enable avahi-daemon
 systemctl enable cronie
 systemctl enable org.cups.cupsd.service
-systemctl enable NetworkManager.service
 systemctl enable systemd-timesyncd.service
 systemctl start systemd-timesyncd.service
 hwclock -w
@@ -126,6 +128,9 @@ hwclock -w
 ```bash
 pacman -S $(< my_packages.txt)
 pacman -S xorg-drivers
+zsh
+chsh -l
+chsh -s /bin/zsh
 ```
 
 
