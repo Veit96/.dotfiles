@@ -95,7 +95,6 @@ reboot
 
 # launch third script:
 ./script_install3.sh
-```
 
 
 # CUSTOMIZE SYSTEM
