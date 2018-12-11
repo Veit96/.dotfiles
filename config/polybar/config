@@ -28,7 +28,7 @@ alert = ${xrdb:color3:#222}
 [bar/thinkpadx260]
 monitor = ${env:MONITOR:eDP-1}
 width = 100%
-height = 25
+height = 26
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
