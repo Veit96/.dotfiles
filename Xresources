@@ -76,32 +76,22 @@ URxvt.geometry:         112x22
 
 ! Fonts
 
-URxvt.font:            xft:SourceCodePro:size=13
+!adobe-source-code-pro
+URxvt.font:         xft:SourceCodePro:size=13
 URxvt.letterSpace: -2
-
-!Courier
-!URxvt.font: xft:Courier:size=13
 
 !Inconsolata
 !URxvt.font: xft:Inconsolata:size=13
 !URxvt.boldFont: xft:Inconsolata:size=13
 !URxvt.letterSpace: -1
 
-!Inconsolata-g
-!URxvt.font: xft:InconsolataG:size=13
-!URxvt.letterSpace: -1
-
 !Anonymous Pro
 !URxvt.font: xft:Anonymous\ Pro:size=14
 !URxvt.boldFont: xft:Anonymous\ Pro:size=13
-!URxvt.letterSpace:-1
-
-!Monaco
-!URxvt.font: xft:Monaco-10
-!URxvt.letterSpace: -1
+!URxvt.letterSpace:
 
 !Droid Sans Mono
-!URxvt.font: xft:Droid Sans Mono:size=13
+!URxvt.font: xft:Droid Sans Mono:size=12
 !URxvt.letterSpace: -1
 
 !Terminus
