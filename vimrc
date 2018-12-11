@@ -18,6 +18,7 @@ Plug 'junegunn/limelight.vim'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
 Plug 'mboughaba/i3config.vim' "i3 config syntax support
+Plug 'dylanaraps/wal.vim' " python wal
 
 " --- Generic programming support ---
 Plug 'Townk/vim-autoclose'
@@ -35,9 +36,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " --- Latex ---
 Plug 'xuhdev/vim-latex-live-preview' " A Vim Plugin for Lively Previewing LaTeX PDF Output
-
-Plug 'dylanaraps/wal.vim' " python wal
-
 " ----------- END PLUGINS ------------
 call plug#end()
 
