@@ -124,7 +124,7 @@ nnoremap <C-h> <C-w>h
 let g:airline#extensions#tabline#enabled = 1 " list of buffers on top
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
-let g:airline_theme= 'aurora' " good options: atomic,understated
+let g:airline_theme= 'atomic' " good options: aurora, understated
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 let g:airline_powerline_fonts = 1

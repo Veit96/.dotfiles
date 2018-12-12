@@ -86,4 +86,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 if [ -f /usr/bin/neofetch ]; then neofetch; fi
 
+powerline-daemon -q
+. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
 export PATH=$PATH:~/bin:~/.local/bin:~/.gem/ruby/2.2.0/bin:
