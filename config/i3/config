@@ -171,8 +171,8 @@ bindsym XF86TouchpadToggle   exec $(xinput list-props "ETPS/2 Elantech Touchpad"
 # Brightness
 bindsym XF86KbdBrightnessDown exec --no-startup-id asus-kbd-backlight down
 bindsym XF86KbdBrightnessUp   exec --no-startup-id asus-kbd-backlight up
-bindsym XF86MonBrightnessDown  exec  xbacklight -dec 10
-bindsym XF86MonBrightnessUp  exec  xbacklight -inc 10
+bindsym XF86MonBrightnessDown  exec  xbacklight -dec 5
+bindsym XF86MonBrightnessUp  exec  xbacklight -inc 5
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
