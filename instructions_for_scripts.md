@@ -103,6 +103,7 @@ reboot
 
 ```bash
 pacman -S $(< my_packages.txt)
+localectl set-x11-keymap ch pc105 de_nodeadkeys caps:swapescape
 pacman -S xorg-drivers
 zsh
 chsh -l

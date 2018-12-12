@@ -78,7 +78,7 @@ URxvt.geometry:         112x22
 
 !adobe-source-code-pro
 URxvt.font:         xft:SourceCodePro:size=13
-URxvt.letterSpace: -2
+URxvt.letterSpace: -1
 
 !Inconsolata
 !URxvt.font: xft:Inconsolata:size=13

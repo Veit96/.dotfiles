@@ -36,9 +36,11 @@ okular
 # PROGRAMMING
 git
 gvim
+zeal
 
-# LATEX / MARKDOWN
+# MARKUP LANGUAGES / LATEX / MARKDOWN
 pandoc
+texlive-most
 
 # TERMINAL / SHELL
 zsh
@@ -76,4 +78,3 @@ powerline
 powerline-fonts
 python-pywal
 compton
-

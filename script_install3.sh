@@ -22,3 +22,5 @@ systemctl enable org.cups.cupsd.service
 systemctl enable systemd-timesyncd.service
 systemctl start systemd-timesyncd.service
 hwclock -w
+
+# install xorg
