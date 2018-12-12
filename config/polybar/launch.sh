@@ -10,31 +10,23 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 name=$(hostname) # enables to load machine specific bars...
 
+# device specific launch
 if [ ${name} = "thinkpadx260" ]; then
   polybar --reload ${name}&
   exit 0
 fi
 
-if [ ${name} = "desktop" ]; then
+
+sleep 0.1
+
+# Launch on multi monitor
+if type "xrandr"; then
   for monitor in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     MONITOR=${monitor} polybar --reload ${name}& # -c $HOME/.config/polybar/config &
   done
 else
   polybar --reload ${name}& # -c $HOME/.config/polybar/config &
 fi
-
-
-#
-#sleep 0.1
-#
-## Launch on multi monitor
-#if type "xrandr"; then
-#  for monitor in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-#    MONITOR=${monitor} polybar --reload ${name}& # -c $HOME/.config/polybar/config &
-#  done
-#else
-#  polybar --reload ${name}& # -c $HOME/.config/polybar/config &
-#fi
 
 # Launch bar1 and bar2
 #polybar -r bar1
