@@ -161,9 +161,9 @@ bindsym $mod+x [urgent=latest] focus
 # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 1+
 # bindsym XF86AudioMute        exec --no-startup-id $(amixer get Master | grep off > /dev/null && amixer -q set Master unmute) || amixer -q set Master mute
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Touchpad
 bindsym XF86TouchpadToggle   exec $(xinput list-props "ETPS/2 Elantech Touchpad" | grep 'Device Enabled.*1$' > /dev/null && xinput set-prop "ETPS/2 Elantech Touchpad" "Device Enabled" 0) || xinput set-prop "ETPS/2 Elantech Touchpad" "Device Enabled" 1

@@ -12,6 +12,7 @@ name=$(hostname) # enables to load machine specific bars...
 
 if [ ${name} = "thinkpadx260" ]; then
   polybar --reload ${name}&
+  exit 0
 fi
 
 if [ ${name} = "desktop" ]; then
