@@ -273,7 +273,7 @@ mode "$mode_launcher" {
 
 # AUTOSTART
 
-exec_always --no-startup-id compton -bcCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
+#exec_always --no-startup-id compton -bcCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id $HOME/.i3/startup # work around, probably because monitor not yet detected or loaded?
 

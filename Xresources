@@ -98,7 +98,6 @@ URxvt.letterSpace: -1
 !URxvt.font: xft:Terminus:size=11
 !URxvt.letterSpace: -6
 
-
 !
 ! do not scroll with output
 URxvt.scrollTtyOutput: false
@@ -111,8 +110,12 @@ URxvt.scrollBar_right:  true
 URxvt.scrollColor:        #000000
 URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select
 URxvt.colorUL: #4682B4
-URxvt.depth: 32
-URxvt.background: rgb:000/000/020
+URxvt*depth: 32
+!URxvt*background: rgb:0000/0000/0200/c800
+URxvt*background: rgb:000/000/020
+URxvt*transparent:   true
+URxvt*shading:       25
+
 
 ! bindings for resize-font
 !URxvt.keysym.C-Down:resize-font:smaller
@@ -131,9 +134,6 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 ! matcher (clickable links)
 URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 1
-
-URxvt.transparent:   true
-URxvt.shading:       25
 
 !------------------------------------------------------------------------------
 ! Xcursor
