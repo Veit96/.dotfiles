@@ -64,6 +64,7 @@ cmake
 smplayer
 mpv
 sxiv
+w3m
 
 # SOUND
 alsa-utils
