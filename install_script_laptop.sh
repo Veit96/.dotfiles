@@ -1,7 +1,10 @@
 #!/bin/sh
 
-# power management
-# tlp?
+sudo pacman -S tlp tp_smapi acpi_call
+systemctl enable tlp.service
+systemctl enable tlp-sleep.service
+systemctl mask systemd-rfkill.service
+systemctl mask systemd-rfkill.socket
 
 # grafik drivers
 
@@ -12,3 +15,6 @@
 # fingerprint reader
 
 # media buttons?
+
+
+
