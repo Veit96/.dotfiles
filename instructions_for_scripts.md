@@ -170,6 +170,20 @@ webkit-theme = litarvan
 pacman -S xf86-input-synaptics
 ```
 
+
+# DESKTOP SPECIFIC
+install nvidia drivers:
+nvidia, nvidia-settings
+
+put the following in /etc/X11/xorg.conf.d/20-nvidia.conf
+Section "Device"
+        Identifier "Nvidia Card"
+        Driver "nvidia"
+        VendorName "NVIDIA Corporation"
+        BoardName "GeForce GTX 780"
+        Option "Coolbits" "28"
+EndSection
+
 # DUAL BOOTING WITH WINDOWS
 
 ## setting windows to UTC instead of localtime:

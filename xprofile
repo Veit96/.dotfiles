@@ -6,11 +6,12 @@ export TERMINAL="rxvt-unicode-256color"
 export BROWSER="chromium"
 export READER="zathura"
 
+if [ $(hostname) = "desktop" ]; then
+  xrandr --output HDMI-0 --primary --rotate left --pos 0x0 --output DP-1 --pos 1440x530 &
+fi
+
 #[ -f ~/.zshrc ] && source ~/.zshrc
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
-
-# set primary monitor (needed because, set differently with lightdm)
-xrandr --output HDMI-1 --primary &
 xset r rate 500 35 & # 1) milisec until key respond 2) repeat per sec
 wal -R -n & # -R restores the last colorscheme that was in use. -n skip setting the wallpaper
 nitrogen --restore & # restore wallpaper
