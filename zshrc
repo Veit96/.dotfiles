@@ -3,6 +3,8 @@
 #zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' menu select
 zstyle :compinstall filename '/home/veit/.zshrc'
+setopt COMPLETE_ALIASES
+zstyle ':completion::complete:*' gain-privileges 1
 
 autoload -Uz compinit promptinit
 compinit
@@ -38,6 +40,7 @@ alias sv="sudo vim"
 alias r="ranger"
 alias sr="sudo ranger"
 alias mkd="mkdir -pv"
+alias n="neofetch"
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
@@ -81,11 +84,10 @@ export EDITOR=vim
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-#powerline-daemon -q
-#. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+# neofetch new shell
+#if [ -f /usr/bin/neofetch ]; then neofetch; fi
 
-if [ -f /usr/bin/neofetch ]; then neofetch; fi
-
+# powerline prompt theme
 powerline-daemon -q
 . /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
