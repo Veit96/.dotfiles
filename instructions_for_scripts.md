@@ -128,7 +128,7 @@ rm -rf yay
 - polybar
 - mons
 - spotify
-- popcorntime
+- popcorntime-bin
 - arch-silence-grub-theme
 
 
