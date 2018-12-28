@@ -155,6 +155,10 @@ systemctl enable lightdm.service
 ...
 greeter-session=lightdm-webkit2-greeter
 ...
+display-setup-script=xrandr --output DP-0 --rotate left --pos 0x0 --output DP-2 --primary --pos 1440x530
+#or
+display-setup-script=xrandr --output DP-2 --primary
+...
 ```
 
 ```bash

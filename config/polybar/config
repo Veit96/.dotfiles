@@ -79,7 +79,7 @@ cursor-scroll = ns-resize
 
 
 [bar/desktop_wide]
-monitor = ${env:MONITOR:DP-1}
+monitor = ${env:MONITOR:DP-2}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -134,7 +134,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/desktop_high]
-monitor = ${env:MONITOR:HDMI-0}
+monitor = ${env:MONITOR:DP-0}
 width = 100%
 height = 27
 ;offset-x = 1%
