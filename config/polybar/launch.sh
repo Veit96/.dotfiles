@@ -22,7 +22,12 @@ if [ ${name} = "desktop" ]; then
   exit 0
 fi
 
-sleep 0.5
+if [ ${name} = "thinkpadx230" ]; then
+  polybar --reload thinkpadx230 &
+  exit 0
+fi
+
+sleep 1
 
 # Launch on multi monitor
 #if type "xrandr"; then

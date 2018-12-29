@@ -25,6 +25,58 @@ primary = ${xrdb:color1:#222}
 secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
 
+[bar/thinkpadx230]
+monitor = ${env:MONITOR:LVDS1}
+width = 100%
+height = 20
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = false
+bottom = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+;line under modules
+line-size = 2
+line-color = #f00
+
+;controll border:
+border-size = 0
+;border-left-size = 0
+;border-right-size = 0
+;border-top-size = 0
+;border-bottom-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = fixed:pixelsize=12;1
+font-1 = unifont:fontformat=truetype:size=12:antialias=false;1
+font-2 = siji:pixelsize=10;1
+
+modules-left = i3 xkeyboard
+modules-center =
+modules-right = xbacklight volume wlan_x230 eth battery date powermenu
+
+tray-position = right
+tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+wm-restack = i3
+
+;avoid having bar visible when in fullscreen mode
+;override-redirect = true
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
 [bar/thinkpadx260]
 monitor = ${env:MONITOR:eDP-1}
 width = 100%
@@ -373,6 +425,28 @@ format = <label>
 [module/wlan]
 type = internal/network
 interface = wlp4s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/wlan_x230]
+type = internal/network
+interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
