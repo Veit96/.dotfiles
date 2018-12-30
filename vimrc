@@ -74,8 +74,8 @@ set background=dark     " enable for dark terminals
 let base16colorspace=256  " Access colors present in 256 colorspace
 "let g:solarized_use16 = 0
 
-"colorscheme dracula
-colorscheme solarized8_high
+colorscheme dracula
+"colorscheme solarized8_high
 "colorscheme wal
 
 " color settings (if terminal/gui supports it)
