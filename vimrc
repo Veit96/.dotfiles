@@ -276,8 +276,9 @@ augroup latex
     autocmd FileType tex setlocal wrap shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType tex setlocal spell spelllang=en_us,en_gb,de_ch
     autocmd FileType tes setlocal complete+=kspell
-    autocmd FileType tex setlocal updatetime=1
-    let g:livepreview_preview = 'okular'
+    autocmd FileType tex setlocal updatetime=1000
+    let g:livepreview_previewer = 'zathura'
+    let g:livepreview_cursorhold_recompile = 0
 augroup END
 
 
