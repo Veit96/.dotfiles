@@ -248,6 +248,7 @@ augroup END
 augroup markdown
     autocmd!
     autocmd BufRead,BufNewFile *.md,*.markdown setfiletype markdown
+    autocmd FileType markdown setlocal textwidth=80
     autocmd FileType markdown setlocal spell spelllang=en_us,en_gb,de_ch
     autocmd FileType markdown :call <SID>MDSettings()
 
@@ -274,6 +275,7 @@ augroup END
 augroup latex
     autocmd!
     autocmd FileType tex setlocal wrap shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType tex setlocal textwidth=80
     autocmd FileType tex setlocal spell spelllang=en_us,en_gb,de_ch
     autocmd FileType tes setlocal complete+=kspell
     autocmd FileType tex setlocal updatetime=1000
