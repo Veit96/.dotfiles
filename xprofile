@@ -7,7 +7,7 @@ export BROWSER="chromium"
 export READER="zathura"
 
 if [ $(hostname) = "desktop" ]; then
-  xrandr --output DP-0 --primary --rotate left --pos 0x0 --output DP-2 --pos 1440x530 &
+  xrandr --output DP-2 --primary --output DP-0 --right-of DP-2 &
 fi
 
 #[ -f ~/.zshrc ] && source ~/.zshrc
