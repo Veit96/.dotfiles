@@ -293,7 +293,15 @@ augroup END
 augroup python
     autocmd!
     " Confirm to PEP8
-    autocmd FileType python set tabstop=4 softtabstop=4 expandtab shiftwidth=4 cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType python set cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd BufNewFile,BufRead *.py
+                \ set tabstop=4 |
+                \ set softtabstop=4 |
+                \ set shiftwidth=4 |
+                \ set textwidth=80 |
+                \ set expandtab |
+                \ set autoindent |
+                \ set fileformat=unix
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
 augroup END
 
