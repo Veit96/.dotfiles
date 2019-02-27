@@ -7,7 +7,7 @@ export BROWSER="chromium"
 export READER="zathura"
 
 if [ $(hostname) = "desktop" ]; then
-  xrandr --output DP-2 --primary --output DP-0 --right-of DP-2 &
+  xrandr --output DP-0 --primary --output DP-2 --right-of DP-0 &
   nvidia-settings --load-config-only &
 fi
 
