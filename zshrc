@@ -19,7 +19,6 @@ SAVEHIST=5000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-alias ls='ls --color=auto'
 # git alias
 alias g="git add . && git commit && git push"
 
@@ -27,7 +26,7 @@ alias g="git add . && git commit && git push"
 #autoload -U add-zsh-hook
 #add-zsh-hook -Uz chpwd (){ ls -a; }
 chpwd() {
-  ls --color
+    ls -hNF --color=auto --group-directories-first
 }
 
 # Use Copy on Write where appropriate
@@ -43,12 +42,10 @@ alias mkd="mkdir -pv"
 alias n="neofetch"
 
 # Adding color
-alias ls='ls -hN --color=auto --group-directories-first'
+alias ls='ls -hNF --color=auto --group-directories-first'
+alias ll='ls -alF'
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-
-# keyboard K780 use regular F1..12 instead of media keys
-alias chk='solaar config k780 fn-swap false'
 
 # Pacman alias examples
 alias pacupg='sudo pacman -Syu'		# Synchronize with repositories and then upgrade packages that are out of date on the local system.
@@ -80,7 +77,6 @@ alias pacmir='sudo pacman -Syy'                    # Force refresh of all packag
 # vim as default editor
 export VISUAL=vim
 export EDITOR=vim
-
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

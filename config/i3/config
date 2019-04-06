@@ -185,7 +185,7 @@ bindsym XF86AudioPrev exec playerctl previous
 #bindsym Ctrl+h exec --no-startup-id mpc prev
 #bindsym Ctrl+l exec --no-startup-id mpc next
 
-focus_follows_mouse no
+focus_follows_mouse yes
 
 set $mode_system System: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (x) shutdown
 bindsym $mod+q mode "$mode_system"

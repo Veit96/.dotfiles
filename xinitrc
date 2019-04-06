@@ -13,9 +13,10 @@ if [ $(hostname) = "desktop" ]; then
   nvidia-settings --load-config-only &
 fi
 
-xset r rate 500 35 & # 1) milisec until key respond 2) repeat per sec
+#[ -f ~/.zshrc ] && source ~/.zshrc
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+xset r rate 500 35 & # 1) milisec until key respond 2) repeat per sec
 wal -R -n & # -R restores the last colorscheme that was in use. -n skip setting the wallpaper
 nitrogen --restore & # restore wallpaper
 
-exec i3
+exec i3 # start Desktop environment
