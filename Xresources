@@ -108,7 +108,7 @@ URxvt.scrollTtyKeypress: true
 URxvt.scrollBar:        false
 URxvt.scrollBar_right:  true
 URxvt.scrollColor:        #000000
-URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select
+URxvt.perl-ext-common: default,resize-font,keyboard-select,url-select,matcher,selection-to-clipboard
 URxvt.colorUL: #4682B4
 URxvt*depth: 32
 !URxvt*background: rgb:0000/0000/0200/c800
@@ -116,23 +116,24 @@ URxvt*background: rgb:000/000/020
 URxvt*transparent:   true
 URxvt*shading:       25
 
-
-! bindings for resize-font
+! resize-font: keybindings, (+/-)
 !URxvt.keysym.C-Down:resize-font:smaller
 !URxvt.keysym.C-Up:	resize-font:bigger
 URxvt.keysym.C-r:	resize-font:reset
 
+! keyboard-select: "vim mode"
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
 ! url-select: yankable URLs (no mouse)
 ! alt+u -> select url
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/chromium
+URxvt.url-select.launcher: /usr/bin/firefox
+! /usr/bin/chromium
 URxvt.url-select.underline: true
 
-! keyboard-select: "vim mode"C
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-
-! matcher (clickable links)
+! matcher: clickable links
 URxvt.url-launcher: /usr/bin/chromium
+! /usr/bin/chromium
 URxvt.matcher.button: 1
 
 !------------------------------------------------------------------------------
