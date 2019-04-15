@@ -32,6 +32,15 @@ chpwd() {
 # Use Copy on Write where appropriate
 alias cp='cp --reflink=auto'
 
+# directory aliases
+alias sem4="cd ~/share/eth/sem4"
+alias em="cd ~/share/eth/sem4/EM"
+alias hl="cd ~/share/eth/sem4/Halbleiterbauelemente"
+alias num="cd ~/share/eth/sem4/Numerik"
+alias sst="cd ~/share/eth/sem4/SigSys2"
+alias wus="cd ~/share/eth/sem4/WuS"
+alias tik="cd ~/share/eth/sem4/Tik2"
+
 # Some aliases
 alias e="$EDITOR"
 alias v="vim"
