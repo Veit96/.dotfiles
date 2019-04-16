@@ -20,7 +20,7 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 
 # git alias
-alias g="git add . && git commit && git push"
+alias g="git add -A && git commit && git push"
 
 # cd & ls
 #autoload -U add-zsh-hook

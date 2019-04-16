@@ -303,6 +303,8 @@ augroup python
                 \ set autoindent |
                 \ set fileformat=unix
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+    autocmd FileType python nnoremap <buffer> <F5> :w<CR>:! python3 %<CR>
+    autocmd Filetype python nnoremap <buffer> <F6> :w<CR>:ter python3 "%"<CR>
 augroup END
 
 
