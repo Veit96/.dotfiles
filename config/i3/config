@@ -241,7 +241,7 @@ mode "$mode_launcher" {
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # compositor
 #exec_always --no-startup-id compton -bcCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
-exec_always --no-startup-id compton -bcCGf -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 5 -D 10 -m 1 -i 0.85
+exec_always --no-startup-id compton -bcCGf -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 5 -D 10 -m 1 -i 1
 
 #------------------------------------------------------------------------------
 # Start i3bar to display a workspace bar (plus the system information i3status
