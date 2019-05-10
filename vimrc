@@ -218,14 +218,20 @@ let g:tex_flavor = "latex"
 "hi clear SpellBad
 "hi SpellBad cterm=underline
 
-" DISABLE AUTOMATIC COMMENTING ON NEWLINE
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" AUTOMATICALLY DELETE ALL TRAILING WHITESPACE ON SAVE
-autocmd BufWritePre * %s/\s\+$//e
 
-" AUTOMATICALLY UPDATE Xresources/Xdefaults
-autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
+augroup utility
+    autocmd!
+    " DISABLE AUTOMATIC COMMENTING ON NEWLINE
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+    " AUTOMATICALLY DELETE ALL TRAILING WHITESPACE ON SAVE
+    autocmd BufWritePre * %s/\s\+$//e
+
+    " AUTOMATICALLY UPDATE Xresources/Xdefaults
+    autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
+    autocmd BufWritePost ~/.vimrc !source %
+augroup END
 
 augroup mysettings
     autocmd!
@@ -257,6 +263,7 @@ function! s:MDSettings()
     inoremap <buffer> <leader>n \note[item]{}<Esc>i
     nnoremap <buffer> <leader>b :! pandoc -t beamer % -o %<.pdf<CR><CR>
     nnoremap <buffer> <leader>c :! pandoc -t latex % -o %<.pdf<CR>
+    nnoremap <buffer> <leader>pdf :! pandoc % -o %<.pdf<CR>
     nnoremap <buffer> <leader>s :! zathura %<.pdf 2>&1 >/dev/null &<CR><CR>
 
     " adjust syntax highlighting for LaTeX parts
@@ -303,7 +310,7 @@ augroup python
                 \ set autoindent |
                 \ set fileformat=unix
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-    autocmd FileType python nnoremap <buffer> <F5> :w<CR>:! python3 %<CR>
+    autocmd FileType python nnoremap <buffer> <F5> :w<CR>:! python3 % &<CR>
     autocmd Filetype python nnoremap <buffer> <F6> :w<CR>:ter python3 "%"<CR>
 augroup END
 

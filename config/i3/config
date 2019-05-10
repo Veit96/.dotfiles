@@ -4,7 +4,7 @@
 # BASIC i3 COMMANDS
 
 # Mod1: alt, Mod4: windows key
-set $mod Mod1
+set $mod Mod4
 
 # Font
 font pango:DejaVu Sans Mono 10
