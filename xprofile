@@ -6,6 +6,7 @@ export VISUAL="vim"
 export TERMINAL="rxvt-unicode-256color"
 export BROWSER="chromium"
 export READER="zathura"
+export RANGER_LOAD_DEFAULT_RC=FALSE
 
 # set primary monitor (needed because, set differently with lightdm)
 if [ $(hostname) = "desktop" ]; then
