@@ -33,8 +33,11 @@ chpwd() {
 alias cp='cp --reflink=auto'
 
 # directory aliases
+alias pic="cd ~/Pictures/Photos/2019"
 alias eth="cd ~/Documents/ETH"
-alias sem4="cd ~/Documents/ETH/sem4"
+alias sem4="cd ~/Documents/ETH/sem4 && ranger"
+alias sem5="cd ~/Documents/ETH/sem5 && ranger"
+alias sum="cd ~/Documents/ETH/Summary && ranger"
 alias em="cd ~/Documents/ETH/sem4/EM"
 alias hl="cd ~/Documents/ETH/sem4/Halbleiterbauelemente"
 alias num="cd ~/Documents/ETH/sem4/Numerik"
@@ -43,9 +46,6 @@ alias wus="cd ~/Documents/ETH/sem4/WuS"
 alias tik="cd ~/Documents/ETH/sem4/Tik2"
 alias ec="cd ~/Documents/ETH/sem3/halbleiter_schaltungstechnik"
 alias dm="cd ~/Documents/ETH/sem3/diskrete_mathematik"
-
-
-
 
 # Some aliases
 alias e="$EDITOR"

@@ -169,8 +169,8 @@ modules-left = i3 xkeyboard
 modules-center =
 modules-right = root home share xbacklight volume wlan eth cpu memory temperature battery date powermenu
 
-tray-position = right
-tray-padding = 2
+;tray-position = right
+;tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
 
