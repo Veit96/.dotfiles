@@ -17,7 +17,7 @@ fi
 #[ -f ~/.zshrc ] && source ~/.zshrc
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 xset r rate 500 35 & # 1) milisec until key respond 2) repeat per sec
-#wal -R -n & # -R restores the last colorscheme that was in use. -n skip setting the wallpaper
+wal -R -n & # -R restores the last colorscheme that was in use. -n skip setting the wallpaper
 nitrogen --restore & # restore wallpaper
 
 /usr/bin/lxpolkit &
